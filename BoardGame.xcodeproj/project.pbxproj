@@ -12,6 +12,16 @@
 		AE16800D198FB08C007DDD0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE16800B198FB08C007DDD0D /* Main.storyboard */; };
 		AE16800F198FB08C007DDD0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE16800E198FB08C007DDD0D /* Images.xcassets */; };
 		AE16801B198FB08C007DDD0D /* BoardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16801A198FB08C007DDD0D /* BoardGameTests.swift */; };
+		AE168025198FB111007DDD0D /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168024198FB111007DDD0D /* Board.swift */; };
+		AE168029198FB3F1007DDD0D /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168028198FB3F1007DDD0D /* Piece.swift */; };
+		AE16802B198FB5DC007DDD0D /* ReversiPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */; };
+		AE16802E198FC709007DDD0D /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16802D198FC709007DDD0D /* GameLogic.swift */; };
+		AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */; };
+		AE168032198FCA35007DDD0D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168031198FCA35007DDD0D /* Player.swift */; };
+		AE168034198FCA58007DDD0D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168033198FCA58007DDD0D /* Game.swift */; };
+		AEA2D5441990B8FA00C39511 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5431990B8FA00C39511 /* AI.swift */; };
+		AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5451991012A00C39511 /* CheckersPiece.swift */; };
+		AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5471991014300C39511 /* CheckersGameLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,16 @@
 		AE168014198FB08C007DDD0D /* BoardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE168019198FB08C007DDD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE16801A198FB08C007DDD0D /* BoardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameTests.swift; sourceTree = "<group>"; };
+		AE168024198FB111007DDD0D /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		AE168028198FB3F1007DDD0D /* Piece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReversiPiece.swift; sourceTree = "<group>"; };
+		AE16802D198FC709007DDD0D /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReversiGameLogic.swift; sourceTree = "<group>"; };
+		AE168031198FCA35007DDD0D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AE168033198FCA58007DDD0D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		AEA2D5431990B8FA00C39511 /* AI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
+		AEA2D5451991012A00C39511 /* CheckersPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersPiece.swift; sourceTree = "<group>"; };
+		AEA2D5471991014300C39511 /* CheckersGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersGameLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +100,7 @@
 				AE16800B198FB08C007DDD0D /* Main.storyboard */,
 				AE16800E198FB08C007DDD0D /* Images.xcassets */,
 				AE168005198FB08C007DDD0D /* Supporting Files */,
+				AE168027198FB148007DDD0D /* Model */,
 			);
 			path = BoardGame;
 			sourceTree = "<group>";
@@ -107,6 +128,39 @@
 				AE168019198FB08C007DDD0D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE168027198FB148007DDD0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE168024198FB111007DDD0D /* Board.swift */,
+				AE16802D198FC709007DDD0D /* GameLogic.swift */,
+				AE168028198FB3F1007DDD0D /* Piece.swift */,
+				AE16802C198FB5E3007DDD0D /* Reversi */,
+				AE168031198FCA35007DDD0D /* Player.swift */,
+				AE168033198FCA58007DDD0D /* Game.swift */,
+				AEA2D5431990B8FA00C39511 /* AI.swift */,
+				AEA2D5491991014900C39511 /* Checkers */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AE16802C198FB5E3007DDD0D /* Reversi */ = {
+			isa = PBXGroup;
+			children = (
+				AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */,
+				AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */,
+			);
+			name = Reversi;
+			sourceTree = "<group>";
+		};
+		AEA2D5491991014900C39511 /* Checkers */ = {
+			isa = PBXGroup;
+			children = (
+				AEA2D5451991012A00C39511 /* CheckersPiece.swift */,
+				AEA2D5471991014300C39511 /* CheckersGameLogic.swift */,
+			);
+			name = Checkers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +262,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE16802E198FC709007DDD0D /* GameLogic.swift in Sources */,
+				AE168034198FCA58007DDD0D /* Game.swift in Sources */,
+				AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */,
+				AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */,
+				AEA2D5441990B8FA00C39511 /* AI.swift in Sources */,
+				AE168029198FB3F1007DDD0D /* Piece.swift in Sources */,
 				AE16800A198FB08C007DDD0D /* ViewController.swift in Sources */,
+				AE168032198FCA35007DDD0D /* Player.swift in Sources */,
+				AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */,
 				AE168008198FB08C007DDD0D /* AppDelegate.swift in Sources */,
+				AE16802B198FB5DC007DDD0D /* ReversiPiece.swift in Sources */,
+				AE168025198FB111007DDD0D /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +461,7 @@
 				AE168020198FB08C007DDD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE168021198FB08C007DDD0D /* Build configuration list for PBXNativeTarget "BoardGameTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +470,7 @@
 				AE168023198FB08C007DDD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
