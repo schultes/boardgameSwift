@@ -21,32 +21,35 @@ class ReversiGameLogic : GameLogic {
         return board
     }
     
-    func getTargetFieldsOnBoard(board: Board<P>, forPlayer player: Player, forSourceX x: Int, andSourceY y: Int) -> Array<((Int, Int), Array<((Int, Int), P)>)> {
-        var result = Array<((Int, Int), Array<((Int, Int), P)>)>()
-        if board[x, y] == P.Empty {
-            let directions = [(0,1),(0,-1),(1,0),(-1,0),(1,1),(-1,-1),(1,-1),(-1,1)]
+    func getMovesOnBoard(board: Board<P>, forPlayer player: Player, forSourceCoords sourceCoords: Coords) -> [Move<P>] {
+        var result = [Move<P>]()
+        let playersPiece = P.getPieceForPlayer(player)
+        if board[sourceCoords.x, sourceCoords.y] == P.Empty {
             let opponent = player.opponent()
-            var allChanges = Array<((Int, Int), P)>()
-            for d in directions {
-                var tmp = Array<((Int, Int), P)>()
-                var i = 1
-                var coords = (x+i*d.0, y+i*d.1)
-                while (board[coords.0, coords.1].belongsToPlayer(opponent)) {
-                    let newPiece = P.getPieceForPlayer(player)
-                    let newElement = (coords, newPiece)
-                    tmp += newElement
-                    i++;
-                    coords = (x+i*d.0, y+i*d.1)
-                }
-                if (tmp.isEmpty) {continue;}
-                if (board[coords.0, coords.1].belongsToPlayer(player)) {
-                    allChanges += tmp
+            var allChanges = Move<P>.Patch()
+            
+            for dx in -1...1 {
+                for dy in -1...1 {
+                    if dx == 0 && dy == 0 {continue}
+                    var tmp = Move<P>.Patch()
+                    var x = sourceCoords.x + dx
+                    var y = sourceCoords.y + dy
+                    for ;board[x, y].belongsToPlayer(opponent); x+=dx, y+=dy {
+                        let newElement = (coords: (x, y) as Coords, newPiece: playersPiece)
+                        tmp += newElement
+                    }
+                    if (tmp.isEmpty) {continue}
+                    if (board[x, y].belongsToPlayer(player)) {
+                        allChanges += tmp
+                    }
                 }
             }
+
             if (!allChanges.isEmpty) {
-                let newElement = ((x, y), P.getPieceForPlayer(player))
+                let newElement = (coords: sourceCoords, newPiece: playersPiece)
                 allChanges += newElement
-                result += ((x, y), allChanges)
+                let move = Move<P>(source: sourceCoords, targets: [sourceCoords], effects: allChanges, value: nil)
+                result += move
             }
         }
         return result
@@ -66,7 +69,7 @@ class ReversiGameLogic : GameLogic {
     func getResult(board: Board<P>) -> (finished: Bool, winner: Player?) {
         var finished = true
         var winner: Player?
-        let movesOfBothPlayers = [GameLogicHelper.getAllMovesOnBoard(board, logic: self, forPlayer: Player.White), GameLogicHelper.getAllMovesOnBoard(board, logic: self, forPlayer: Player.Black)]
+        let movesOfBothPlayers = [GameLogicHelper.getAllMovesOnBoard(board, withLogic: self, forPlayer: Player.White), GameLogicHelper.getAllMovesOnBoard(board, withLogic: self, forPlayer: Player.Black)]
         for movesOfOnePlayer in movesOfBothPlayers {
             if !movesOfOnePlayer.isEmpty {finished = false}
         }

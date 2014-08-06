@@ -22,6 +22,7 @@
 		AEA2D5441990B8FA00C39511 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5431990B8FA00C39511 /* AI.swift */; };
 		AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5451991012A00C39511 /* CheckersPiece.swift */; };
 		AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5471991014300C39511 /* CheckersGameLogic.swift */; };
+		AEA2D54B19923ADB00C39511 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D54A19923ADB00C39511 /* Move.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		AEA2D5431990B8FA00C39511 /* AI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		AEA2D5451991012A00C39511 /* CheckersPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersPiece.swift; sourceTree = "<group>"; };
 		AEA2D5471991014300C39511 /* CheckersGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersGameLogic.swift; sourceTree = "<group>"; };
+		AEA2D54A19923ADB00C39511 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		AE168027198FB148007DDD0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEA2D54A19923ADB00C39511 /* Move.swift */,
 				AE168024198FB111007DDD0D /* Board.swift */,
 				AE16802D198FC709007DDD0D /* GameLogic.swift */,
 				AE168028198FB3F1007DDD0D /* Piece.swift */,
@@ -265,6 +268,7 @@
 				AE16802E198FC709007DDD0D /* GameLogic.swift in Sources */,
 				AE168034198FCA58007DDD0D /* Game.swift in Sources */,
 				AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */,
+				AEA2D54B19923ADB00C39511 /* Move.swift in Sources */,
 				AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */,
 				AEA2D5441990B8FA00C39511 /* AI.swift in Sources */,
 				AE168029198FB3F1007DDD0D /* Piece.swift in Sources */,

@@ -15,4 +15,9 @@ class Game<P: Piece, GL: GameLogic where GL.P == P> {
         self.logic = logic
         currentBoard = logic.getInitialBoard()
     }
+    
+    func restart() {
+        currentPlayer = Player.White
+        currentBoard = logic.getInitialBoard()
+    }
 }

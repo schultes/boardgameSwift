@@ -7,39 +7,46 @@
 //
 
 class AI<P: Piece, GL: GameLogic where GL.P == P> {
-    func getNextMove(game: Game<P, GL>) -> ((Int, Int), Array<((Int, Int), P)>) {
-        return getNextMove(game.currentBoard, logic: game.logic, player: game.currentPlayer, maximize: game.currentPlayer == Player.White, depth: 2).1
+    let MAX_DEPTH = 2
+    let logic: GL
+    
+    init(logic: GL) {
+        self.logic = logic
     }
     
-    private func getNextMove(board: Board<P>, logic: GL, player: Player, maximize: Bool, depth: Int) -> (Double, ((Int, Int), Array<((Int, Int), P)>)) {
+    func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player) -> Move<P> {
+        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.White, withDepth: MAX_DEPTH)
+    }
+    
+    private func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
         var newBoard = Board<P>()
-        var bestMove: ((Int, Int), Array<((Int, Int), P)>)?
-        var bestValue = 0.0
-        let allMoves = GameLogicHelper.getAllMovesOnBoard(board, logic: logic, forPlayer: player)
-        for move in allMoves {
-            let target = move.1
-            if depth == 2 {
-                print("depth: \(depth), (\(move.0.0), \(move.0.1)), best value: \(bestValue)")
+        var bestMove: Move<P>?
+        var allMoves = GameLogicHelper.getAllMovesOnBoard(board, withLogic: logic, forPlayer: player)
+        
+        for var i = 0; i < allMoves.count; i++ {
+            var move = allMoves[i]
+            if depth == MAX_DEPTH {
+                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)")
             }
             board.copyToBoard(newBoard)
-            newBoard.applyChanges(target.1)
-            var currentValue = 0.0
+            newBoard.applyChanges(move.effects)
             if (depth > 0) {
-                currentValue = getNextMove(newBoard, logic: logic, player: player.opponent(), maximize: !maximize, depth: depth-1).0
+                move.value = getNextMoveOnBoard(newBoard, forPlayer: player.opponent(), maximizingValue: !maximizingValue, withDepth: depth-1).value!
             } else {
-                currentValue = logic.evaluateBoard(newBoard)
+                move.value = logic.evaluateBoard(newBoard)
             }
-            if depth == 2 {
-                println(", current value: \(currentValue) ")
+            if depth == MAX_DEPTH {
+                println(", current value: \(move.value!) ")
             }
-            if (!bestMove) || ((currentValue > bestValue) == maximize) {
-                bestMove = target
-                bestValue = currentValue
+            if (!bestMove) || ((move.value > bestMove!.value) == maximizingValue) {
+                bestMove = move
             }
         }
-        if bestMove {return (bestValue, bestMove!)}
-        
-        // return empty dummy move if there is no real move
-        return (logic.evaluateBoard(board), ((0, 0), Array<((Int, Int), P)>()))
+        if (!bestMove) {
+            // return empty dummy move if there is no real move
+            bestMove = Move<P>(source: (0, 0), targets: [(0, 0)], effects: Move<P>.Patch(), value: logic.evaluateBoard(board))
+        }
+        assert(bestMove!.value) // value of next move is guaranteed to be set
+        return bestMove!
     }
 }

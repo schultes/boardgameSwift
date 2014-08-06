@@ -34,9 +34,9 @@ class Board<P: Piece> {
         }
     }
     
-    func applyChanges(changes: Array<((Int, Int), P)>) {
+    func applyChanges(changes: Move<P>.Patch) {
         for change in changes {
-            self[change.0.0, change.0.1] = change.1
+            self[change.coords.x, change.coords.y] = change.newPiece
         }
     }
     
