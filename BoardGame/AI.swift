@@ -7,7 +7,7 @@
 //
 
 class AI<P: Piece, GL: GameLogic where GL.P == P> {
-    let MAX_DEPTH = 4
+    let MAX_DEPTH = 2
     let logic: GL
     
     init(logic: GL) {
@@ -29,9 +29,11 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
                 print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)")
             }
             board.copyToBoard(newBoard)
-            newBoard.applyChanges(move.effects)
+            for step in move.steps {
+                newBoard.applyChanges(step.effects)
+            }
             if (depth > 0) {
-                move.value = getNextMoveOnBoard(newBoard, forPlayer: player.opponent(), maximizingValue: !maximizingValue, withDepth: depth-1).value!
+                move.value = getNextMoveOnBoard(newBoard, forPlayer: player.opponent, maximizingValue: !maximizingValue, withDepth: depth-1).value!
             } else {
                 move.value = logic.evaluateBoard(newBoard)
             }
@@ -44,7 +46,7 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
         }
         if (!bestMove) {
             // return empty dummy move if there is no real move
-            bestMove = Move<P>(source: (0, 0), targets: [(0, 0)], effects: Move<P>.Patch(), value: logic.evaluateBoard(board))
+            bestMove = Move<P>(coords: (0, 0), value: logic.evaluateBoard(board))
         }
         assert(bestMove!.value) // value of next move is guaranteed to be set
         return bestMove!

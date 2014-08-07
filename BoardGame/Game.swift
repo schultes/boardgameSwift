@@ -22,6 +22,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     private var currentPlayer = Player.White
     private var currentBoard: Board<P>
     private var currentMoves: [Move<P>]?
+    private var currentStepIndex = 0
     
     init(logic: GL) {
         self.logic = logic
@@ -47,8 +48,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         var result = [Coords]()
         if let moves = currentMoves {
             for move in moves {
-                // TODO: support multiple targets
-                result += move.targets[0]
+                result += move.steps[currentStepIndex].target
             }
         }
         return result
@@ -62,20 +62,30 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     
     /* Returns true iff something at the model has changed. */
     func userActionAt(coords: Coords) -> Bool {
-        if !isCurrentPlayerWhite {return false}
         if result.finished {return false}
 
         let (x, y) = coords
         
         if currentMoves {
             for move in currentMoves! {
-                // TODO: work with multiple targets
-                if x == move.targets[0].x && y == move.targets[0].y {
-                    currentMoves = nil
+                if x == move.steps[currentStepIndex].target.x && y == move.steps[currentStepIndex].target.y {
+                    currentBoard.applyChanges(move.steps[currentStepIndex].effects)
                     
-                    currentBoard.applyChanges(move.effects)
-                    currentPlayer = currentPlayer.opponent()
-                    println(logic.evaluateBoard(currentBoard))
+                    if (currentStepIndex+1 == move.steps.count) {
+                        currentMoves = nil
+                        currentStepIndex = 0
+                        currentPlayer = currentPlayer.opponent
+                        println(logic.evaluateBoard(currentBoard))
+                    } else {
+                        var remainingMoves = [Move<P>]()
+                        for m in currentMoves! {
+                            if x == m.steps[currentStepIndex].target.x && y == m.steps[currentStepIndex].target.y {
+                                remainingMoves += m
+                            }
+                        }
+                        currentMoves = remainingMoves
+                        currentStepIndex++
+                    }
                     
                     return true
                 }
@@ -85,7 +95,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
             if (moves.isEmpty) {
                 if GameLogicHelper.getAllMovesOnBoard(currentBoard, withLogic: logic, forPlayer: currentPlayer).isEmpty {
                     // add empty dummy move if there is no real move
-                    let dummyMove = Move<P>(source: (x, y), targets: [(x, y)], effects: Move<P>.Patch(), value: nil)
+                    let dummyMove = Move<P>(coords: (x, y), value: nil)
                     moves += dummyMove
                 }
             }
@@ -101,9 +111,11 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     func aiMove() -> Bool {
         if result.finished {return false}
         let nextMove = ai.getNextMoveOnBoard(currentBoard, forPlayer: currentPlayer)
-        currentBoard.applyChanges(nextMove.effects)
+        for step in nextMove.steps {
+            currentBoard.applyChanges(step.effects)
+        }
         println(logic.evaluateBoard(currentBoard))
-        currentPlayer = currentPlayer.opponent()
+        currentPlayer = currentPlayer.opponent
         return true
     }
     

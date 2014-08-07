@@ -26,6 +26,12 @@ enum CheckersPiece : String, Piece {
         return toRaw()
     }
     
+    func belongsToPlayer(player: Player) -> Bool {
+        if ((self == CheckersPiece.WhiteMan) || (self == CheckersPiece.WhiteKing)) && (player == Player.White) {return true}
+        if ((self == CheckersPiece.BlackMan) || (self == CheckersPiece.BlackKing)) && (player == Player.Black) {return true}
+        return false;
+    }
+    
     static func getManForPlayer(player: Player) -> CheckersPiece {
         return player == Player.White ? .WhiteMan : .BlackMan
     }

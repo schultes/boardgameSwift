@@ -9,7 +9,7 @@
 enum Player {
     case White, Black
     
-    func opponent() -> Player {
-        if self == .White {return .Black} else {return .White}
+    var opponent : Player {
+        return self == Player.White ? .Black : .White
     }
 }
