@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     private func initFields() {
         // outlet collection would probably be nicer, but in Xcode 6 beta 4 there are problems with it!
         for _ in 0..<BOARD_SIZE {
-            fields += [UIButton?](count: BOARD_SIZE, repeatedValue: nil)
+            fields.append([UIButton?](count: BOARD_SIZE, repeatedValue: nil))
         }
         for view in self.view.subviews {
             if let field = view as? UIButton {

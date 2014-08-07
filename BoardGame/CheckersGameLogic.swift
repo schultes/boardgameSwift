@@ -33,7 +33,7 @@ class CheckersGameLogic : GameLogic {
         let allMoves = getMovesOnBoard(board, forPlayer: player)
         for move in allMoves {
             if move.source.x == sc.x && move.source.y == sc.y {
-                result += move
+                result.append(move)
             }
         }
         
@@ -67,7 +67,7 @@ class CheckersGameLogic : GameLogic {
                                 let tc: Coords = (tx, ty)
                                 if board[tx, ty] != P.Empty {break}
                                 let targetPiece = getTargetPieceOnBoard(board, forPlayer: player, atCoords: tc, forSourcePiece: sourcePiece)
-                                normalMoves += Move<P>(source: sc, steps: [(target: tc, effects: [(sc, P.Empty), (tc, targetPiece)])], value: nil)
+                                normalMoves.append(Move<P>(source: sc, steps: [(target: tc, effects: [(sc, P.Empty), (tc, targetPiece)])], value: nil))
                             }
                         }
                     }
@@ -75,7 +75,7 @@ class CheckersGameLogic : GameLogic {
                     // capture
                     let arrayOfSteps = recursiveCaptureOnBoard(board, forPlayer: player, forCurrentCoords: sc, withRange: range, inYdirections: yDirections)
                     for steps in arrayOfSteps {
-                        captureMoves += Move<P>(source: sc, steps: steps, value: nil)
+                        captureMoves.append(Move<P>(source: sc, steps: steps, value: nil))
                     }
                     
                 }
@@ -119,7 +119,7 @@ class CheckersGameLogic : GameLogic {
                                 } else {
                                     for subsequentSteps in arrayOfSubsequentSteps {
                                         let concatenatedSteps = thisSteps + subsequentSteps
-                                        result += concatenatedSteps
+                                        result.append(concatenatedSteps)
                                     }
                                 }
                             }

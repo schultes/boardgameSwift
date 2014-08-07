@@ -49,7 +49,8 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         var result = [Coords]()
         if let moves = currentMoves {
             for move in moves {
-                result += move.steps[currentStepIndex].target
+                let target : Coords = move.steps[currentStepIndex].target
+                result.append(target)
             }
         }
         return result
@@ -67,7 +68,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
 
         let (x, y) = coords
         
-        if currentMoves {
+        if (currentMoves != nil) {
             for move in currentMoves! {
                 if x == move.steps[currentStepIndex].target.x && y == move.steps[currentStepIndex].target.y {
                     currentBoard.applyChanges(move.steps[currentStepIndex].effects)
@@ -81,7 +82,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
                         var remainingMoves = [Move<P>]()
                         for m in currentMoves! {
                             if x == m.steps[currentStepIndex].target.x && y == m.steps[currentStepIndex].target.y {
-                                remainingMoves += m
+                                remainingMoves.append(m)
                             }
                         }
                         currentMoves = remainingMoves
@@ -97,7 +98,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
                 if logic.getMovesOnBoard(currentBoard, forPlayer: currentPlayer).isEmpty {
                     // add empty dummy move if there is no real move
                     let dummyMove = Move<P>(coords: (x, y), value: nil)
-                    moves += dummyMove
+                    moves.append(dummyMove)
                 }
             }
             if (!moves.isEmpty) {

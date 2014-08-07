@@ -40,15 +40,15 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
             if depth == maxSearchDepth {
                 println(", current value: \(move.value!) ")
             }
-            if (!bestMove) || ((move.value > bestMove!.value) == maximizingValue) {
+            if (bestMove == nil) || ((move.value > bestMove!.value) == maximizingValue) {
                 bestMove = move
             }
         }
-        if (!bestMove) {
+        if (bestMove == nil) {
             // return empty dummy move if there is no real move
             bestMove = Move<P>(coords: (0, 0), value: logic.evaluateBoard(board))
         }
-        assert(bestMove!.value) // value of next move is guaranteed to be set
+        assert(bestMove!.value != nil) // value of next move is guaranteed to be set
         return bestMove!
     }
 }

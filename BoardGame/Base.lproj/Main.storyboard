@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,7 +24,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hYZ-LY-rJY" secondAttribute="height" multiplier="1:1" id="BG1-tS-AJA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +39,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fBy-pn-l90" secondAttribute="height" multiplier="1:1" id="j8t-IT-C8g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +54,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vde-MF-O1T" secondAttribute="height" multiplier="1:1" id="C5U-eF-CXK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,7 +69,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rXL-3p-fLl" secondAttribute="height" multiplier="1:1" id="KWY-3Y-7M3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +84,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r5S-bG-clc" secondAttribute="height" multiplier="1:1" id="A71-LL-b7c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +99,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fm2-UV-TmZ" secondAttribute="height" multiplier="1:1" id="b1i-43-1zb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,7 +114,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rDE-VT-0Yj" secondAttribute="height" multiplier="1:1" id="zuA-8A-0Jz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,7 +129,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dkk-y9-lFL" secondAttribute="height" multiplier="1:1" id="KWb-zH-wkl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +144,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="y1P-km-Tkw" secondAttribute="height" multiplier="1:1" id="v9e-sv-h7N"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,7 +159,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SI7-tV-iwO" secondAttribute="height" multiplier="1:1" id="V2z-hm-OwL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +174,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FS7-1H-I8m" secondAttribute="height" multiplier="1:1" id="Tfe-Br-Qrz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -188,7 +189,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FsB-wu-iTa" secondAttribute="height" multiplier="1:1" id="98E-cl-0LW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,7 +204,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nu1-op-bdS" secondAttribute="height" multiplier="1:1" id="oEt-16-vhI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,7 +219,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XIf-Vc-PqQ" secondAttribute="height" multiplier="1:1" id="Q5a-wZ-3yi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -233,7 +234,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="v3r-yB-HWn" secondAttribute="height" multiplier="1:1" id="52l-ks-fPc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,7 +249,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ec1-fG-jgb" secondAttribute="height" multiplier="1:1" id="Ma2-Xm-YY1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,7 +264,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8c2-W4-nvf" secondAttribute="height" multiplier="1:1" id="Kn0-oE-Mkf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -278,7 +279,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ujc-8L-BP4" secondAttribute="height" multiplier="1:1" id="q9m-2U-uzL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,7 +294,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jhN-8E-Iqb" secondAttribute="height" multiplier="1:1" id="Mmu-4f-TMW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,7 +309,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="R9A-6r-p4R" secondAttribute="height" multiplier="1:1" id="5zk-7j-mQs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,7 +324,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WY5-6V-r9i" secondAttribute="height" multiplier="1:1" id="sXY-JM-eHK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,7 +339,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cqF-ty-srx" secondAttribute="height" multiplier="1:1" id="1wV-ss-f4H"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,7 +354,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dOD-fz-Ugy" secondAttribute="height" multiplier="1:1" id="GfC-g3-V4y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,7 +369,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GZY-Wf-ta9" secondAttribute="height" multiplier="1:1" id="826-Me-Ajv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -383,7 +384,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6at-uE-Yi6" secondAttribute="height" multiplier="1:1" id="6GE-G0-arW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -398,7 +399,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tYv-5S-yIg" secondAttribute="height" multiplier="1:1" id="Rox-g1-gI1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +414,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="weU-Tp-4Z9" secondAttribute="height" multiplier="1:1" id="fMM-fr-f7h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -428,7 +429,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A0M-Lm-9Em" secondAttribute="height" multiplier="1:1" id="D6q-Pe-boA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -443,7 +444,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iS3-ND-f5B" secondAttribute="height" multiplier="1:1" id="VjW-7a-FZN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -458,7 +459,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VQb-xl-yYn" secondAttribute="height" multiplier="1:1" id="tox-qo-JaU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -473,7 +474,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aPb-rj-qmL" secondAttribute="height" multiplier="1:1" id="J3u-Ab-L7g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,7 +489,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uIg-6C-dVa" secondAttribute="height" multiplier="1:1" id="X8n-wj-6E5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -503,7 +504,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WpV-um-a1j" secondAttribute="height" multiplier="1:1" id="YwW-Cm-7Us"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,7 +519,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cOa-c6-n7g" secondAttribute="height" multiplier="1:1" id="wPz-Of-SCg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -533,7 +534,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BlQ-Zj-kcq" secondAttribute="height" multiplier="1:1" id="XgV-M2-Jo3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -548,7 +549,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MFt-YO-CoQ" secondAttribute="height" multiplier="1:1" id="NCc-ZL-ecr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -563,7 +564,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1L9-VZ-D7l" secondAttribute="height" multiplier="1:1" id="MXx-QA-cy2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -578,7 +579,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NWH-Qy-RJi" secondAttribute="height" multiplier="1:1" id="deY-ol-EaR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -593,7 +594,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GOE-iu-88A" secondAttribute="height" multiplier="1:1" id="Y0W-tQ-zSM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -608,7 +609,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kMt-zk-una" secondAttribute="height" multiplier="1:1" id="ZdT-lF-zhe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -623,7 +624,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LcR-GI-BgQ" secondAttribute="height" multiplier="1:1" id="H5n-4j-S54"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -638,7 +639,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9up-li-Y9I" secondAttribute="height" multiplier="1:1" id="itX-cz-XGW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -653,7 +654,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wrb-CW-2zo" secondAttribute="height" multiplier="1:1" id="NpR-EX-rPQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -668,7 +669,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Y4n-Ya-VPx" secondAttribute="height" multiplier="1:1" id="rQa-2e-xBf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -683,7 +684,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cN1-eI-Gbr" secondAttribute="height" multiplier="1:1" id="6wO-qQ-5kE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -698,7 +699,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="byt-UW-U5S" secondAttribute="height" multiplier="1:1" id="0Qb-hf-2DD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -713,7 +714,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="g9G-HN-3V9" secondAttribute="height" multiplier="1:1" id="U77-eX-pMP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -728,7 +729,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C9S-ZR-rdZ" secondAttribute="height" multiplier="1:1" id="1IU-HG-esL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -743,7 +744,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUV-Yj-xB5" secondAttribute="height" multiplier="1:1" id="qUS-0B-OPa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -758,7 +759,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xe9-lK-vqT" secondAttribute="height" multiplier="1:1" id="1ES-UL-Dr5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -773,7 +774,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ra8-aV-Au4" secondAttribute="height" multiplier="1:1" id="xJd-cn-vCF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -788,7 +789,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IAb-ap-pCz" secondAttribute="height" multiplier="1:1" id="F1m-u5-vKV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -803,7 +804,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="48n-NZ-cTi" secondAttribute="height" multiplier="1:1" id="oCb-IX-Hm6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -818,7 +819,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aRs-PO-2HB" secondAttribute="height" multiplier="1:1" id="xd3-9a-RwE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -833,7 +834,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tZr-v6-1GU" secondAttribute="height" multiplier="1:1" id="eEg-R4-qYp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -848,7 +849,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="n35-fh-eHg" secondAttribute="height" multiplier="1:1" id="wlt-Ca-Xzb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -863,7 +864,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vc7-y1-yCN" secondAttribute="height" multiplier="1:1" id="buV-ek-KXb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -878,7 +879,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U8E-lp-n0K" secondAttribute="height" multiplier="1:1" id="ILe-nQ-SfP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -893,7 +894,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0HD-WU-Cgl" secondAttribute="height" multiplier="1:1" id="ipu-yB-92g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -908,7 +909,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PF5-QX-fAZ" secondAttribute="height" multiplier="1:1" id="Z2q-uS-w0y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -923,7 +924,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Spu-b0-KAu" secondAttribute="height" multiplier="1:1" id="L65-Xx-Eic"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -938,7 +939,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vjq-Y1-Od8" secondAttribute="height" multiplier="1:1" id="zJe-f8-DOU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -953,7 +954,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MOj-PN-B7E" secondAttribute="height" multiplier="1:1" id="mPC-i9-jbG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -968,7 +969,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dgP-VH-9V3" secondAttribute="height" multiplier="1:1" id="A5t-hJ-2tz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="◎">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1015,12 +1016,6 @@
                                     <action selector="gameSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Jwe-OG-tgi"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI-Suchtiefe: 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-64-e9M">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-tm-A2O">
                                 <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                                 <constraints>
@@ -1040,6 +1035,12 @@
                                     <action selector="aiSearchDepthChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qhg-CK-zsG"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI-Suchtiefe: 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-64-e9M">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1114,7 +1115,6 @@
                             <constraint firstItem="byt-UW-U5S" firstAttribute="width" secondItem="byt-UW-U5S" secondAttribute="height" multiplier="1:1" id="JDv-be-d8t"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="Vjq-Y1-Od8" secondAttribute="top" id="JEp-xc-3Vk"/>
                             <constraint firstItem="cqF-ty-srx" firstAttribute="leading" secondItem="R9A-6r-p4R" secondAttribute="trailing" id="JFo-Me-YkK"/>
-                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="centerY" secondItem="GXC-64-e9M" secondAttribute="centerY" constant="0.5" id="JWZ-W9-5dF"/>
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="top" secondItem="fBy-pn-l90" secondAttribute="top" id="Jll-S6-ULE"/>
                             <constraint firstItem="cOa-c6-n7g" firstAttribute="width" secondItem="cOa-c6-n7g" secondAttribute="height" multiplier="1:1" id="Jp1-65-j5s"/>
                             <constraint firstItem="VQb-xl-yYn" firstAttribute="top" secondItem="tYv-5S-yIg" secondAttribute="top" id="L5Z-dP-dip"/>
@@ -1147,7 +1147,7 @@
                             <constraint firstItem="VQb-xl-yYn" firstAttribute="width" secondItem="GZY-Wf-ta9" secondAttribute="width" id="Qb3-C0-vcZ"/>
                             <constraint firstItem="R9A-6r-p4R" firstAttribute="width" secondItem="R9A-6r-p4R" secondAttribute="height" multiplier="1:1" id="QeE-Qd-Pbg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1aI-Ss-C8G" secondAttribute="bottom" constant="116" id="R9f-z5-v3N">
-                                <variation key="heightClass=regular" constant="20" symbolic="YES"/>
+                                <variation key="heightClass=regular" constant="8" symbolic="YES"/>
                             </constraint>
                             <constraint firstItem="A0M-Lm-9Em" firstAttribute="width" secondItem="A0M-Lm-9Em" secondAttribute="height" multiplier="1:1" id="RE7-zy-uO3"/>
                             <constraint firstItem="byt-UW-U5S" firstAttribute="top" secondItem="Vjq-Y1-Od8" secondAttribute="bottom" id="RQC-AT-z0D"/>
@@ -1181,7 +1181,6 @@
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="Y4n-Ya-VPx" secondAttribute="top" id="Yhh-Qh-avG"/>
                             <constraint firstItem="tYv-5S-yIg" firstAttribute="width" secondItem="tYv-5S-yIg" secondAttribute="height" multiplier="1:1" id="Ypo-zF-eOx"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="width" secondItem="PF5-QX-fAZ" secondAttribute="width" id="Yyr-1t-9zN"/>
-                            <constraint firstItem="1aI-Ss-C8G" firstAttribute="top" secondItem="GXC-64-e9M" secondAttribute="bottom" constant="8" id="ZBF-HP-ejX"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="width" secondItem="0HD-WU-Cgl" secondAttribute="width" id="ZLW-Yb-GO8"/>
                             <constraint firstItem="kMt-zk-una" firstAttribute="leading" secondItem="GOE-iu-88A" secondAttribute="trailing" id="ZQJ-ti-TLL"/>
                             <constraint firstItem="FS7-1H-I8m" firstAttribute="leading" secondItem="SI7-tV-iwO" secondAttribute="trailing" id="ZQz-vX-m0L"/>
@@ -1230,6 +1229,7 @@
                             <constraint firstItem="BlQ-Zj-kcq" firstAttribute="width" secondItem="BlQ-Zj-kcq" secondAttribute="height" multiplier="1:1" id="kbH-3h-mvP"/>
                             <constraint firstItem="BlQ-Zj-kcq" firstAttribute="leading" secondItem="MFt-YO-CoQ" secondAttribute="trailing" id="kmp-Vc-6zz"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="width" secondItem="Vjq-Y1-Od8" secondAttribute="width" id="ks2-pg-6mV"/>
+                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="top" secondItem="aRs-PO-2HB" secondAttribute="bottom" constant="8" id="lbi-8C-RM0"/>
                             <constraint firstItem="uIg-6C-dVa" firstAttribute="width" secondItem="uIg-6C-dVa" secondAttribute="height" multiplier="1:1" id="mF4-1M-Wjb"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="top" secondItem="aRs-PO-2HB" secondAttribute="top" id="mOv-Kv-liK"/>
                             <constraint firstItem="v3r-yB-HWn" firstAttribute="top" secondItem="y1P-km-Tkw" secondAttribute="top" id="mgG-XL-hBa"/>
@@ -1241,6 +1241,9 @@
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="width" secondItem="fBy-pn-l90" secondAttribute="width" id="p0o-Or-4C4"/>
                             <constraint firstItem="weU-Tp-4Z9" firstAttribute="leading" secondItem="A0M-Lm-9Em" secondAttribute="trailing" id="pUN-fu-phn"/>
                             <constraint firstItem="v3r-yB-HWn" firstAttribute="top" secondItem="XIf-Vc-PqQ" secondAttribute="top" id="pX8-gI-fKs"/>
+                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="pgz-gE-PAp">
+                                <variation key="heightClass=regular" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="iS3-ND-f5B" firstAttribute="leading" secondItem="weU-Tp-4Z9" secondAttribute="trailing" id="pik-Zp-R8i"/>
                             <constraint firstItem="g9G-HN-3V9" firstAttribute="leading" secondItem="byt-UW-U5S" secondAttribute="trailing" id="q9d-As-y9a"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="width" secondItem="Wrb-CW-2zo" secondAttribute="width" id="qOM-k8-O3P"/>
@@ -1254,6 +1257,7 @@
                             <constraint firstItem="6at-uE-Yi6" firstAttribute="leading" secondItem="GZY-Wf-ta9" secondAttribute="trailing" id="s6B-wY-xNK"/>
                             <constraint firstItem="SI7-tV-iwO" firstAttribute="width" secondItem="SI7-tV-iwO" secondAttribute="height" multiplier="1:1" id="sEV-CP-EVy"/>
                             <constraint firstItem="y1P-km-Tkw" firstAttribute="width" secondItem="y1P-km-Tkw" secondAttribute="height" multiplier="1:1" id="sFh-0V-g43"/>
+                            <constraint firstItem="GXC-64-e9M" firstAttribute="top" secondItem="cAZ-tm-A2O" secondAttribute="bottom" constant="8" id="sbq-xm-pFr"/>
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="top" secondItem="MOj-PN-B7E" secondAttribute="top" id="scI-x1-Mkv"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="width" secondItem="Y4n-Ya-VPx" secondAttribute="width" id="syR-c9-BgP"/>
                             <constraint firstItem="v3r-yB-HWn" firstAttribute="top" secondItem="FsB-wu-iTa" secondAttribute="top" id="t8o-WI-3SR"/>
@@ -1284,22 +1288,21 @@
                             <constraint firstItem="NWH-Qy-RJi" firstAttribute="top" secondItem="WpV-um-a1j" secondAttribute="top" id="z2A-ct-kJY"/>
                             <constraint firstItem="n35-fh-eHg" firstAttribute="leading" secondItem="tZr-v6-1GU" secondAttribute="trailing" id="z3z-Fy-743"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="9up-li-Y9I" secondAttribute="top" id="z5U-V3-QGA"/>
-                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="leading" secondItem="GXC-64-e9M" secondAttribute="trailing" constant="8" id="zDc-t2-ixI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="1aI-Ss-C8G"/>
                                 <exclude reference="jkR-Dw-ss6"/>
                                 <exclude reference="18R-qY-bfX"/>
-                                <exclude reference="GXC-64-e9M"/>
                                 <exclude reference="cAZ-tm-A2O"/>
+                                <exclude reference="GXC-64-e9M"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="lbi-8C-RM0"/>
+                                <exclude reference="pgz-gE-PAp"/>
                                 <exclude reference="Fnk-Zc-br1"/>
-                                <exclude reference="JWZ-W9-5dF"/>
-                                <exclude reference="zDc-t2-ixI"/>
+                                <exclude reference="sbq-xm-pFr"/>
                                 <exclude reference="0Im-NV-9yi"/>
-                                <exclude reference="ZBF-HP-ejX"/>
                                 <exclude reference="R9f-z5-v3N"/>
                                 <exclude reference="WiW-Oc-Nhb"/>
                                 <exclude reference="Ikn-hF-t4y"/>
@@ -1312,15 +1315,15 @@
                                 <include reference="1aI-Ss-C8G"/>
                                 <include reference="jkR-Dw-ss6"/>
                                 <include reference="18R-qY-bfX"/>
-                                <include reference="GXC-64-e9M"/>
                                 <include reference="cAZ-tm-A2O"/>
+                                <include reference="GXC-64-e9M"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="lbi-8C-RM0"/>
+                                <include reference="pgz-gE-PAp"/>
                                 <include reference="Fnk-Zc-br1"/>
-                                <include reference="JWZ-W9-5dF"/>
-                                <include reference="zDc-t2-ixI"/>
+                                <include reference="sbq-xm-pFr"/>
                                 <include reference="0Im-NV-9yi"/>
-                                <include reference="ZBF-HP-ejX"/>
                                 <include reference="R9f-z5-v3N"/>
                                 <include reference="WiW-Oc-Nhb"/>
                                 <include reference="Ikn-hF-t4y"/>

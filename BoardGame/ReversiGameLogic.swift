@@ -35,7 +35,7 @@ class ReversiGameLogic : GameLogic {
                     var x = sourceCoords.x + dx
                     var y = sourceCoords.y + dy
                     for ;board[x, y].belongsToPlayer(opponent); x+=dx, y+=dy {
-                        let newElement = (coords: (x, y) as Coords, newPiece: playersPiece)
+                        let newElement = [(coords: (x, y) as Coords, newPiece: playersPiece)]
                         tmp += newElement
                     }
                     if (tmp.isEmpty) {continue}
@@ -46,10 +46,10 @@ class ReversiGameLogic : GameLogic {
             }
 
             if (!allChanges.isEmpty) {
-                let newElement = (coords: sourceCoords, newPiece: playersPiece)
+                let newElement = [(coords: sourceCoords, newPiece: playersPiece)]
                 allChanges += newElement
                 let move = Move<P>(source: sourceCoords, steps: [(target: sourceCoords, effects: allChanges)], value: nil)
-                result += move
+                result.append(move)
             }
         }
         return result
