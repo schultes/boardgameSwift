@@ -1015,6 +1015,31 @@
                                     <action selector="gameSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Jwe-OG-tgi"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI-Suchtiefe: 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-64-e9M">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-tm-A2O">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="6y9-OK-3hO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6y9-OK-3hO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="6y9-OK-3hO"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="aiSearchDepthChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qhg-CK-zsG"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1067,6 +1092,7 @@
                             <constraint firstItem="dOD-fz-Ugy" firstAttribute="width" secondItem="jhN-8E-Iqb" secondAttribute="width" id="FKh-x1-xi0"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="top" secondItem="U8E-lp-n0K" secondAttribute="top" id="FOc-63-3kV"/>
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="trailing" secondItem="cN1-eI-Gbr" secondAttribute="trailing" id="FlX-PT-pAT"/>
+                            <constraint firstItem="GXC-64-e9M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Fnk-Zc-br1"/>
                             <constraint firstItem="48n-NZ-cTi" firstAttribute="top" secondItem="Ra8-aV-Au4" secondAttribute="top" id="Fxk-D6-QrI"/>
                             <constraint firstItem="WpV-um-a1j" firstAttribute="leading" secondItem="uIg-6C-dVa" secondAttribute="trailing" id="GZL-BO-UZm"/>
                             <constraint firstItem="v3r-yB-HWn" firstAttribute="top" secondItem="FS7-1H-I8m" secondAttribute="top" id="GpI-jX-igi"/>
@@ -1088,6 +1114,7 @@
                             <constraint firstItem="byt-UW-U5S" firstAttribute="width" secondItem="byt-UW-U5S" secondAttribute="height" multiplier="1:1" id="JDv-be-d8t"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="Vjq-Y1-Od8" secondAttribute="top" id="JEp-xc-3Vk"/>
                             <constraint firstItem="cqF-ty-srx" firstAttribute="leading" secondItem="R9A-6r-p4R" secondAttribute="trailing" id="JFo-Me-YkK"/>
+                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="centerY" secondItem="GXC-64-e9M" secondAttribute="centerY" constant="0.5" id="JWZ-W9-5dF"/>
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="top" secondItem="fBy-pn-l90" secondAttribute="top" id="Jll-S6-ULE"/>
                             <constraint firstItem="cOa-c6-n7g" firstAttribute="width" secondItem="cOa-c6-n7g" secondAttribute="height" multiplier="1:1" id="Jp1-65-j5s"/>
                             <constraint firstItem="VQb-xl-yYn" firstAttribute="top" secondItem="tYv-5S-yIg" secondAttribute="top" id="L5Z-dP-dip"/>
@@ -1154,6 +1181,7 @@
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="Y4n-Ya-VPx" secondAttribute="top" id="Yhh-Qh-avG"/>
                             <constraint firstItem="tYv-5S-yIg" firstAttribute="width" secondItem="tYv-5S-yIg" secondAttribute="height" multiplier="1:1" id="Ypo-zF-eOx"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="width" secondItem="PF5-QX-fAZ" secondAttribute="width" id="Yyr-1t-9zN"/>
+                            <constraint firstItem="1aI-Ss-C8G" firstAttribute="top" secondItem="GXC-64-e9M" secondAttribute="bottom" constant="8" id="ZBF-HP-ejX"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="width" secondItem="0HD-WU-Cgl" secondAttribute="width" id="ZLW-Yb-GO8"/>
                             <constraint firstItem="kMt-zk-una" firstAttribute="leading" secondItem="GOE-iu-88A" secondAttribute="trailing" id="ZQJ-ti-TLL"/>
                             <constraint firstItem="FS7-1H-I8m" firstAttribute="leading" secondItem="SI7-tV-iwO" secondAttribute="trailing" id="ZQz-vX-m0L"/>
@@ -1256,15 +1284,22 @@
                             <constraint firstItem="NWH-Qy-RJi" firstAttribute="top" secondItem="WpV-um-a1j" secondAttribute="top" id="z2A-ct-kJY"/>
                             <constraint firstItem="n35-fh-eHg" firstAttribute="leading" secondItem="tZr-v6-1GU" secondAttribute="trailing" id="z3z-Fy-743"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="9up-li-Y9I" secondAttribute="top" id="z5U-V3-QGA"/>
+                            <constraint firstItem="cAZ-tm-A2O" firstAttribute="leading" secondItem="GXC-64-e9M" secondAttribute="trailing" constant="8" id="zDc-t2-ixI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="1aI-Ss-C8G"/>
                                 <exclude reference="jkR-Dw-ss6"/>
                                 <exclude reference="18R-qY-bfX"/>
+                                <exclude reference="GXC-64-e9M"/>
+                                <exclude reference="cAZ-tm-A2O"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Fnk-Zc-br1"/>
+                                <exclude reference="JWZ-W9-5dF"/>
+                                <exclude reference="zDc-t2-ixI"/>
                                 <exclude reference="0Im-NV-9yi"/>
+                                <exclude reference="ZBF-HP-ejX"/>
                                 <exclude reference="R9f-z5-v3N"/>
                                 <exclude reference="WiW-Oc-Nhb"/>
                                 <exclude reference="Ikn-hF-t4y"/>
@@ -1277,9 +1312,15 @@
                                 <include reference="1aI-Ss-C8G"/>
                                 <include reference="jkR-Dw-ss6"/>
                                 <include reference="18R-qY-bfX"/>
+                                <include reference="GXC-64-e9M"/>
+                                <include reference="cAZ-tm-A2O"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Fnk-Zc-br1"/>
+                                <include reference="JWZ-W9-5dF"/>
+                                <include reference="zDc-t2-ixI"/>
                                 <include reference="0Im-NV-9yi"/>
+                                <include reference="ZBF-HP-ejX"/>
                                 <include reference="R9f-z5-v3N"/>
                                 <include reference="WiW-Oc-Nhb"/>
                                 <include reference="Ikn-hF-t4y"/>
@@ -1289,6 +1330,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="aiSearchDepthLabel" destination="GXC-64-e9M" id="va5-eA-gbw"/>
+                        <outlet property="aiSearchDepthSlider" destination="cAZ-tm-A2O" id="pxM-1t-ASg"/>
                         <outlet property="firstBoardField" destination="hYZ-LY-rJY" id="sYs-TE-M0t"/>
                         <outlet property="gameSelectionControl" destination="18R-qY-bfX" id="AmI-ua-nOy"/>
                         <outlet property="restartButton" destination="jkR-Dw-ss6" id="7cm-z6-Nwg"/>

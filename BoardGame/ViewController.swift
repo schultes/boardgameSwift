@@ -13,11 +13,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var firstBoardField: UIButton!
     @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var aiSearchDepthLabel: UILabel!
+    @IBOutlet weak var aiSearchDepthSlider: UISlider!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var gameSelectionControl: UISegmentedControl!
     var fields = [[UIButton?]]()
     var uiDisabled = false
     var game : Game = GenericGame<ReversiPiece, ReversiGameLogic>(logic: ReversiGameLogic())
+    
+    
+    @IBAction func aiSearchDepthChanged(sender: UISlider) {
+        let searchDepth = Int(sender.value)
+        aiSearchDepthLabel.text = "KI-Suchtiefe: \(searchDepth)"
+        game.aiSetSearchDepth(searchDepth)
+    }
+    
     
     @IBAction func restart() {
         game.restart()
@@ -58,6 +68,7 @@ class ViewController: UIViewController {
     
     private func disableUI(disable: Bool) {
         uiDisabled = disable
+        aiSearchDepthSlider.enabled = !disable
         restartButton.enabled = !disable
         gameSelectionControl.enabled = !disable
     }

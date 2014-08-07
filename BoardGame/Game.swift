@@ -14,6 +14,7 @@ protocol Game {
     func restart()
     func userActionAt(coords: Coords) -> Bool
     func aiMove() -> Bool
+    func aiSetSearchDepth(depth: Int)
 }
 
 class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
@@ -37,7 +38,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     
     /* a read-only computed property */
     var result: (finished: Bool, winner: Player?) {
-        return logic.getResult(currentBoard)
+        return logic.getResultOnBoard(currentBoard, forPlayer: currentPlayer)
     }
     
     func getFieldAsStringAt(coords: Coords) -> String {
@@ -93,7 +94,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         } else {
             var moves = logic.getMovesOnBoard(currentBoard, forPlayer: currentPlayer, forSourceCoords: coords)
             if (moves.isEmpty) {
-                if GameLogicHelper.getAllMovesOnBoard(currentBoard, withLogic: logic, forPlayer: currentPlayer).isEmpty {
+                if logic.getMovesOnBoard(currentBoard, forPlayer: currentPlayer).isEmpty {
                     // add empty dummy move if there is no real move
                     let dummyMove = Move<P>(coords: (x, y), value: nil)
                     moves += dummyMove
@@ -119,4 +120,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         return true
     }
     
+    func aiSetSearchDepth(depth: Int) {
+        ai.maxSearchDepth = depth
+    }
 }

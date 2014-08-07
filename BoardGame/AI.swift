@@ -7,7 +7,7 @@
 //
 
 class AI<P: Piece, GL: GameLogic where GL.P == P> {
-    let MAX_DEPTH = 2
+    var maxSearchDepth = 2
     let logic: GL
     
     init(logic: GL) {
@@ -15,17 +15,17 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
     }
     
     func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player) -> Move<P> {
-        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.White, withDepth: MAX_DEPTH)
+        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.White, withDepth: maxSearchDepth)
     }
     
     private func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
         var newBoard = Board<P>()
         var bestMove: Move<P>?
-        var allMoves = GameLogicHelper.getAllMovesOnBoard(board, withLogic: logic, forPlayer: player)
+        var allMoves = logic.getMovesOnBoard(board, forPlayer: player)
         
         for var i = 0; i < allMoves.count; i++ {
             var move = allMoves[i]
-            if depth == MAX_DEPTH {
+            if depth == maxSearchDepth {
                 print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)")
             }
             board.copyToBoard(newBoard)
@@ -37,7 +37,7 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
             } else {
                 move.value = logic.evaluateBoard(newBoard)
             }
-            if depth == MAX_DEPTH {
+            if depth == maxSearchDepth {
                 println(", current value: \(move.value!) ")
             }
             if (!bestMove) || ((move.value > bestMove!.value) == maximizingValue) {

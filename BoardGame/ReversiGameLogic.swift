@@ -55,6 +55,16 @@ class ReversiGameLogic : GameLogic {
         return result
     }
     
+    func getMovesOnBoard(board: Board<P>, forPlayer player: Player) -> [Move<P>] {
+        var result = [Move<P>]()
+        for x in 0..<board.columns {
+            for y in 0..<board.rows {
+                result += getMovesOnBoard(board, forPlayer: player, forSourceCoords: (x, y))
+            }
+        }
+        return result
+    }
+    
     func evaluateBoard(board: Board<P>) -> Double {
         var result = 0.0
         for x in 0..<board.columns {
@@ -66,10 +76,10 @@ class ReversiGameLogic : GameLogic {
         return result
     }
     
-    func getResult(board: Board<P>) -> (finished: Bool, winner: Player?) {
+    func getResultOnBoard(board: Board<P>, forPlayer _: Player) -> (finished: Bool, winner: Player?) {
         var finished = true
         var winner: Player?
-        let movesOfBothPlayers = [GameLogicHelper.getAllMovesOnBoard(board, withLogic: self, forPlayer: Player.White), GameLogicHelper.getAllMovesOnBoard(board, withLogic: self, forPlayer: Player.Black)]
+        let movesOfBothPlayers = [getMovesOnBoard(board, forPlayer: Player.White), getMovesOnBoard(board, forPlayer: Player.Black)]
         for movesOfOnePlayer in movesOfBothPlayers {
             if !movesOfOnePlayer.isEmpty {finished = false}
         }
