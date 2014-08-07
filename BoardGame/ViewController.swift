@@ -11,83 +11,59 @@ import UIKit
 class ViewController: UIViewController {
     let BOARD_SIZE = 8
     
-    typealias MyPiece = ReversiPiece
-    typealias MyGameLogic = ReversiGameLogic
-    
     @IBOutlet weak var firstBoardField: UIButton!
     @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var gameSelectionControl: UISegmentedControl!
     var fields = [[UIButton?]]()
-    let game = Game<MyPiece, MyGameLogic>(logic: MyGameLogic())
-    var ai: AI<MyPiece, MyGameLogic>?
-    
-    var currentMoves: [Move<MyPiece>]?
+    var uiDisabled = false
+    var game : Game = GenericGame<ReversiPiece, ReversiGameLogic>(logic: ReversiGameLogic())
     
     @IBAction func restart() {
-        if game.currentPlayer == Player.Black && !game.logic.getResult(game.currentBoard).finished {return}
         game.restart()
         refreshUI()
     }
     
-    @IBAction func fieldClick(sender: UIButton) {
-        if game.currentPlayer == Player.Black {return}
-        if game.logic.getResult(game.currentBoard).finished {return}
-        
-        let coords = getFieldCoords(sender)
-        let (x, y) = coords
-        
-        if currentMoves {
-            for move in currentMoves! {
-                // TODO: work with multiple targets
-                if x == move.targets[0].x && y == move.targets[0].y {
-                    currentMoves = nil
-                    userMove(move)
-                    break
-                }
-            }
+    @IBAction func gameSelected(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            game = GenericGame<ReversiPiece, ReversiGameLogic>(logic: ReversiGameLogic())
         } else {
-            var moves = game.logic.getMovesOnBoard(game.currentBoard, forPlayer: game.currentPlayer, forSourceCoords: coords)
-            if (moves.isEmpty) {
-                if GameLogicHelper.getAllMovesOnBoard(game.currentBoard, withLogic: game.logic, forPlayer: game.currentPlayer).isEmpty {
-                    // add empty dummy move if there is no real move
-                    let dummyMove = Move<MyPiece>(source: (x, y), targets: [(x, y)], effects: Move<MyPiece>.Patch(), value: nil)
-                    moves += dummyMove
-                }
-            }
-            println("\(x) \(y)")
-            if (!moves.isEmpty) {
-                currentMoves = moves
-                refreshUI()
-            }
+            game = GenericGame<CheckersPiece, CheckersGameLogic>(logic: CheckersGameLogic())
         }
+        refreshUI()
     }
     
-    private func userMove(move: Move<MyPiece>) {
-        game.currentBoard.applyChanges(move.effects)
-        game.currentPlayer = game.currentPlayer.opponent()
-        println(game.logic.evaluateBoard(game.currentBoard))
-        refreshUI()
-        
-        aiMove()
+    @IBAction func fieldClick(sender: UIButton) {
+        if (uiDisabled) {return}
+        let coords = getFieldCoords(sender)
+        println(coords)
+        if game.userActionAt(coords) {
+            refreshUI()
+            if (!game.isCurrentPlayerWhite) {aiMove()}
+        }
     }
     
     private func aiMove() {
-        if game.logic.getResult(game.currentBoard).finished {return}
+        disableUI(true)
         let globalQueuePriority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(globalQueuePriority, 0)) {
-            let nextMove = self.ai!.getNextMoveOnBoard(self.game.currentBoard, forPlayer: self.game.currentPlayer)
-            self.game.currentBoard.applyChanges(nextMove.effects)
+            let somethingChanged = self.game.aiMove()
             
             dispatch_async(dispatch_get_main_queue()) {
-                println(self.game.logic.evaluateBoard(self.game.currentBoard))
-                self.game.currentPlayer = self.game.currentPlayer.opponent()
-                self.refreshUI()
+                if somethingChanged {self.refreshUI()}
+                self.disableUI(false)
             }
         }
+    }
+    
+    private func disableUI(disable: Bool) {
+        uiDisabled = disable
+        restartButton.enabled = !disable
+        gameSelectionControl.enabled = !disable
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ai = AI<MyPiece, MyGameLogic>(logic: game.logic)
         initFields()
         refreshUI()
     }
@@ -115,32 +91,29 @@ class ViewController: UIViewController {
                         field.backgroundColor = UIColor.whiteColor()
                     }
                     field.selected = false
-                    field.setTitle(game.currentBoard[x, y].toRaw(), forState: .Normal)
+                    field.setTitle(game.getFieldAsStringAt((x, y)), forState: .Normal)
                 }
             }
         }
         
         // set selected state
-        if let moves = currentMoves {
-            for move in moves {
-                // TODO: support multiple targets
-                if let field = fields[move.targets[0].x][move.targets[0].y] {
-                    field.selected = true
-                }
+        for target in game.getCurrentTargets() {
+            if let field = fields[target.x][target.y] {
+                field.selected = true
             }
         }
-
+        
         // update state label
-        let result = game.logic.getResult(game.currentBoard)
+        let result = game.result
         if result.finished {
             if let winner = result.winner {
-                let player = winner == .White ? "Weiß" : "Schwarz"
+                let player = winner == Player.White ? "Weiß" : "Schwarz"
                 stateLabel.text = player + " gewinnt"
             } else {
                 stateLabel.text = "Unentschieden"
             }
         } else {
-            let player = game.currentPlayer == .White ? "Weiß" : "Schwarz"
+            let player = game.isCurrentPlayerWhite ? "Weiß" : "Schwarz"
             stateLabel.text = player + " am Zug"
         }
     }

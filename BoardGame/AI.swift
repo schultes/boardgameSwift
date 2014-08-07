@@ -7,7 +7,7 @@
 //
 
 class AI<P: Piece, GL: GameLogic where GL.P == P> {
-    let MAX_DEPTH = 2
+    let MAX_DEPTH = 4
     let logic: GL
     
     init(logic: GL) {

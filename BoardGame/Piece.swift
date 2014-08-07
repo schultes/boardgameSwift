@@ -9,4 +9,5 @@
 protocol Piece {
     class func getEmpty() -> Self
     class func getInvalid() -> Self
+    var asString: String { get }
 }

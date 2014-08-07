@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 THM. All rights reserved.
 //
 
-/*
 enum CheckersPiece : String, Piece {
     case Empty = "  "
     case Invalid = "x"
@@ -15,22 +14,23 @@ enum CheckersPiece : String, Piece {
     case WhiteKing = "♕"
     case BlackKing = "♛"
     
-    static func getEmpty() -> ReversiPiece {
+    static func getEmpty() -> CheckersPiece {
         return .Empty
     }
     
-    static func getInvalid() -> ReversiPiece {
+    static func getInvalid() -> CheckersPiece {
         return .Invalid
     }
     
-    func belongsToPlayer(player: Player) -> Bool {
-        if (((self == CheckersPiece.WhiteMan) || ((self == CheckersPiece.WhiteKing))) && (player == Player.White)) {return true;}
-        if (((self == CheckersPiece.BlackMan) || ((self == CheckersPiece.BlackKing))) && (player == Player.Black)) {return true;}
-        return false;
+    var asString: String {
+        return toRaw()
     }
     
-    static func getPieceForPlayer(player: Player) -> CheckersPiece {
-        return player == .White ? .White : .Black
+    static func getManForPlayer(player: Player) -> CheckersPiece {
+        return player == Player.White ? .WhiteMan : .BlackMan
+    }
+    
+    static func getKingForPlayer(player: Player) -> CheckersPiece {
+        return player == Player.White ? .WhiteKing : .BlackKing
     }
 }
-*/

@@ -1005,6 +1005,16 @@
                                     <action selector="restart" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Kp-mW-rer"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="18R-qY-bfX">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Othello"/>
+                                    <segment title="Dame"/>
+                                </segments>
+                                <connections>
+                                    <action selector="gameSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Jwe-OG-tgi"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1072,6 +1082,7 @@
                             <constraint firstItem="NWH-Qy-RJi" firstAttribute="top" secondItem="aPb-rj-qmL" secondAttribute="top" id="IC9-ue-Yjp"/>
                             <constraint firstItem="mUV-Yj-xB5" firstAttribute="leading" secondItem="C9S-ZR-rdZ" secondAttribute="trailing" id="IMG-lq-b9H"/>
                             <constraint firstItem="kMt-zk-una" firstAttribute="width" secondItem="kMt-zk-una" secondAttribute="height" multiplier="1:1" id="IhZ-lZ-4O3"/>
+                            <constraint firstAttribute="trailing" secondItem="18R-qY-bfX" secondAttribute="trailing" constant="20" id="Ikn-hF-t4y"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="width" secondItem="kMt-zk-una" secondAttribute="width" id="Ixa-xu-KLc"/>
                             <constraint firstItem="Spu-b0-KAu" firstAttribute="width" secondItem="vc7-y1-yCN" secondAttribute="width" id="IyW-T4-hR8"/>
                             <constraint firstItem="byt-UW-U5S" firstAttribute="width" secondItem="byt-UW-U5S" secondAttribute="height" multiplier="1:1" id="JDv-be-d8t"/>
@@ -1117,6 +1128,7 @@
                             <constraint firstItem="VQb-xl-yYn" firstAttribute="top" secondItem="dgP-VH-9V3" secondAttribute="top" id="Ruk-jN-uSk"/>
                             <constraint firstItem="NWH-Qy-RJi" firstAttribute="width" secondItem="MFt-YO-CoQ" secondAttribute="width" id="S1E-sX-tIe"/>
                             <constraint firstItem="cN1-eI-Gbr" firstAttribute="top" secondItem="GOE-iu-88A" secondAttribute="top" id="S2A-vh-HOX"/>
+                            <constraint firstItem="jkR-Dw-ss6" firstAttribute="top" secondItem="18R-qY-bfX" secondAttribute="bottom" constant="8" id="S6k-OB-r0j"/>
                             <constraint firstItem="rDE-VT-0Yj" firstAttribute="width" secondItem="fm2-UV-TmZ" secondAttribute="width" id="SV7-PF-uUv"/>
                             <constraint firstItem="IAb-ap-pCz" firstAttribute="leading" secondItem="xe9-lK-vqT" secondAttribute="trailing" id="Sa5-BD-wcW"/>
                             <constraint firstItem="VQb-xl-yYn" firstAttribute="width" secondItem="weU-Tp-4Z9" secondAttribute="width" id="Scc-o0-miL"/>
@@ -1249,11 +1261,14 @@
                             <mask key="subviews">
                                 <exclude reference="1aI-Ss-C8G"/>
                                 <exclude reference="jkR-Dw-ss6"/>
+                                <exclude reference="18R-qY-bfX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0Im-NV-9yi"/>
                                 <exclude reference="R9f-z5-v3N"/>
                                 <exclude reference="WiW-Oc-Nhb"/>
+                                <exclude reference="Ikn-hF-t4y"/>
+                                <exclude reference="S6k-OB-r0j"/>
                                 <exclude reference="ccH-YE-YIe"/>
                             </mask>
                         </variation>
@@ -1261,17 +1276,22 @@
                             <mask key="subviews">
                                 <include reference="1aI-Ss-C8G"/>
                                 <include reference="jkR-Dw-ss6"/>
+                                <include reference="18R-qY-bfX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="0Im-NV-9yi"/>
                                 <include reference="R9f-z5-v3N"/>
                                 <include reference="WiW-Oc-Nhb"/>
+                                <include reference="Ikn-hF-t4y"/>
+                                <include reference="S6k-OB-r0j"/>
                                 <include reference="ccH-YE-YIe"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="firstBoardField" destination="hYZ-LY-rJY" id="sYs-TE-M0t"/>
+                        <outlet property="gameSelectionControl" destination="18R-qY-bfX" id="AmI-ua-nOy"/>
+                        <outlet property="restartButton" destination="jkR-Dw-ss6" id="7cm-z6-Nwg"/>
                         <outlet property="stateLabel" destination="1aI-Ss-C8G" id="RX5-XT-gLM"/>
                     </connections>
                 </viewController>
