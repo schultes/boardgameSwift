@@ -139,11 +139,11 @@
 				AE168024198FB111007DDD0D /* Board.swift */,
 				AE16802D198FC709007DDD0D /* GameLogic.swift */,
 				AE168028198FB3F1007DDD0D /* Piece.swift */,
-				AE16802C198FB5E3007DDD0D /* Reversi */,
 				AE168031198FCA35007DDD0D /* Player.swift */,
 				AE168033198FCA58007DDD0D /* Game.swift */,
 				AEA2D5431990B8FA00C39511 /* AI.swift */,
 				AEA2D5491991014900C39511 /* Checkers */,
+				AE16802C198FB5E3007DDD0D /* Reversi */,
 			);
 			name = Model;
 			sourceTree = "<group>";
