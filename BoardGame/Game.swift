@@ -77,7 +77,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
                         currentMoves = nil
                         currentStepIndex = 0
                         currentPlayer = currentPlayer.opponent
-                        println(logic.evaluateBoard(currentBoard))
+                        print(logic.evaluateBoard(currentBoard))
                     } else {
                         var remainingMoves = [Move<P>]()
                         for m in currentMoves! {
@@ -116,7 +116,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         for step in nextMove.steps {
             currentBoard.applyChanges(step.effects)
         }
-        println(logic.evaluateBoard(currentBoard))
+        print(logic.evaluateBoard(currentBoard))
         currentPlayer = currentPlayer.opponent
         return true
     }

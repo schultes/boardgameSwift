@@ -7,7 +7,7 @@
 //
 
 protocol Piece {
-    class func getEmpty() -> Self
-    class func getInvalid() -> Self
+    static func getEmpty() -> Self
+    static func getInvalid() -> Self
     var asString: String { get }
 }

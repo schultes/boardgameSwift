@@ -23,7 +23,7 @@ enum CheckersPiece : String, Piece {
     }
     
     var asString: String {
-        return toRaw()
+        return rawValue
     }
     
     func belongsToPlayer(player: Player) -> Bool {

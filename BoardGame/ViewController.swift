@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     @IBAction func fieldClick(sender: UIButton) {
         if (uiDisabled) {return}
         let coords = getFieldCoords(sender)
-        println(coords)
+        print(coords)
         if game.userActionAt(coords) {
             refreshUI()
             if (!game.isCurrentPlayerWhite) {aiMove()}
@@ -130,8 +130,9 @@ class ViewController: UIViewController {
     }
     
     private func getFieldCoords(field: UIButton) -> Coords {
-        let x = Int((field.frame.origin.x - firstBoardField.frame.origin.x) / field.frame.size.width)
-        let y = Int((field.frame.origin.y - firstBoardField.frame.origin.y) / field.frame.size.height)
+        let size = firstBoardField.frame.size
+        let x = Int((field.frame.midX - firstBoardField.frame.origin.x) / size.width)
+        let y = Int((field.frame.midY - firstBoardField.frame.origin.y) / size.height)
         return (x, y)
     }
 

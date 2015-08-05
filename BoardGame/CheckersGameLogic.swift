@@ -11,7 +11,7 @@ class CheckersGameLogic : GameLogic {
     typealias P = CheckersPiece
     
     func getInitialBoard() -> Board<P> {
-        var board = Board<P>()
+        let board = Board<P>()
         for x in 0..<board.columns {
             for y in 0..<3 {
                 if (x+y) % 2 == 1 {
@@ -109,7 +109,7 @@ class CheckersGameLogic : GameLogic {
                                 // promotion took place (man -> king): stop recursion!
                                 result.append(thisSteps)
                             } else {
-                                var newBoard = Board<P>()
+                                let newBoard = Board<P>()
                                 board.copyToBoard(newBoard)
                                 newBoard.applyChanges(effects)
                                 
