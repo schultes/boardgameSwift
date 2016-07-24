@@ -16,26 +16,26 @@ class AI<GL: GameLogic> {
         self.logic = logic
     }
     
-    func getNextMoveOnBoard(_ board: Board<P>, forPlayer player: Player) -> Move<P> {
-        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.white, withDepth: maxSearchDepth)
+    func getNextMove(onBoard board: Board<P>, forPlayer player: Player) -> Move<P> {
+        return getNextMove(onBoard: board, forPlayer: player, maximizingValue: player == Player.white, withDepth: maxSearchDepth)
     }
     
-    private func getNextMoveOnBoard(_ board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
+    private func getNextMove(onBoard board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
         let newBoard = Board<P>()
         var bestMove: Move<P>?
-        var allMoves = logic.getMovesOnBoard(board, forPlayer: player)
+        var allMoves = logic.getMoves(onBoard: board, forPlayer: player)
         
         for i in 0 ..< allMoves.count {
             var move = allMoves[i]
             if depth == maxSearchDepth {
                 print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)", terminator: "")
             }
-            board.copyToBoard(newBoard)
+            board.copy(toBoard: newBoard)
             for step in move.steps {
                 newBoard.applyChanges(step.effects)
             }
             if (depth > 0) {
-                move.value = getNextMoveOnBoard(newBoard, forPlayer: player.opponent, maximizingValue: !maximizingValue, withDepth: depth-1).value!
+                move.value = getNextMove(onBoard: newBoard, forPlayer: player.opponent, maximizingValue: !maximizingValue, withDepth: depth-1).value!
             } else {
                 move.value = logic.evaluateBoard(newBoard)
             }

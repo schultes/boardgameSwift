@@ -27,10 +27,10 @@ class CheckersGameLogic : GameLogic {
         return board
     }
     
-    func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player, forSourceCoords sc: Coords) -> [Move<P>] {
+    func getMoves(onBoard board: Board<P>, forPlayer player: Player, forSourceCoords sc: Coords) -> [Move<P>] {
         var result = [Move<P>]()
         
-        let allMoves = getMovesOnBoard(board, forPlayer: player)
+        let allMoves = getMoves(onBoard: board, forPlayer: player)
         for move in allMoves {
             if move.source.x == sc.x && move.source.y == sc.y {
                 result.append(move)
@@ -40,11 +40,11 @@ class CheckersGameLogic : GameLogic {
         return result
     }
     
-    func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player) -> [Move<P>] {
-        return getMovesOnBoard(board, forPlayer: player, ignoreCaptureObligation: false)
+    func getMoves(onBoard board: Board<P>, forPlayer player: Player) -> [Move<P>] {
+        return getMoves(onBoard: board, forPlayer: player, ignoreCaptureObligation: false)
     }
     
-    private func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player, ignoreCaptureObligation: Bool) -> [Move<P>] {
+    private func getMoves(onBoard board: Board<P>, forPlayer player: Player, ignoreCaptureObligation: Bool) -> [Move<P>] {
         var normalMoves = [Move<P>]()
         var captureMoves = [Move<P>]()
         let forwardDirection = player == Player.white ? -1 : 1
@@ -53,8 +53,8 @@ class CheckersGameLogic : GameLogic {
             for y in 0..<board.rows {
                 let sc : Coords = (x, y)
                 let sourcePiece = board[sc.x, sc.y]
-                if sourcePiece.belongsToPlayer(player) {
-                    let sourcePieceIsMan = (sourcePiece == P.getManForPlayer(player))
+                if sourcePiece.belongs(toPlayer: player) {
+                    let sourcePieceIsMan = (sourcePiece == P.getMan(forPlayer: player))
                     let range = sourcePieceIsMan ? 1...1 : 1...board.rows-1
                     let yDirections = sourcePieceIsMan ? [forwardDirection] : [-1, 1]
                     
@@ -66,14 +66,14 @@ class CheckersGameLogic : GameLogic {
                                 let ty = sc.y + i*dy
                                 let tc: Coords = (tx, ty)
                                 if board[tx, ty] != P.Empty {break}
-                                let targetPiece = getTargetPieceOnBoard(board, forPlayer: player, atCoords: tc, forSourcePiece: sourcePiece)
+                                let targetPiece = getTargetPiece(onBoard: board, forPlayer: player, atCoords: tc, forSourcePiece: sourcePiece)
                                 normalMoves.append(Move<P>(source: sc, steps: [(target: tc, effects: [(sc, P.Empty), (tc, targetPiece)])], value: nil))
                             }
                         }
                     }
                     
                     // capture
-                    let arrayOfSteps = recursiveCaptureOnBoard(board, forPlayer: player, forCurrentCoords: sc, withRange: range, inYdirections: yDirections)
+                    let arrayOfSteps = recursiveCapture(onBoard: board, forPlayer: player, forCurrentCoords: sc, withRange: range, inYdirections: yDirections)
                     for steps in arrayOfSteps {
                         captureMoves.append(Move<P>(source: sc, steps: steps, value: nil))
                     }
@@ -87,7 +87,7 @@ class CheckersGameLogic : GameLogic {
         return !captureMoves.isEmpty ? captureMoves : normalMoves
     }
     
-    private func recursiveCaptureOnBoard(_ board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: [Int]) -> [Move<P>.Steps] {
+    private func recursiveCapture(onBoard board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: [Int]) -> [Move<P>.Steps] {
         var result = Array<Move<P>.Steps>()
         
         for dy in yDirections {
@@ -96,13 +96,13 @@ class CheckersGameLogic : GameLogic {
                     let tx = cc.x + i*dx
                     let ty = cc.y + i*dy
                     let tc: Coords = (tx, ty)
-                    if board[tx, ty].belongsToPlayer(player.opponent) {
+                    if board[tx, ty].belongs(toPlayer: player.opponent) {
                         let t2x = tx + dx
                         let t2y = ty + dy
                         let t2c: Coords = (t2x, t2y)
                         if board[t2x, t2y] == P.Empty {
                             let sourcePiece = board[cc.x, cc.y]
-                            let targetPiece = getTargetPieceOnBoard(board, forPlayer: player, atCoords: t2c, forSourcePiece: sourcePiece)
+                            let targetPiece = getTargetPiece(onBoard: board, forPlayer: player, atCoords: t2c, forSourcePiece: sourcePiece)
                             let effects : Move<P>.Patch = [(cc, P.Empty), (tc, P.Empty), (t2c, targetPiece)]
                             let thisSteps = [(target: t2c, effects: effects)]
                             if sourcePiece != targetPiece {
@@ -110,10 +110,10 @@ class CheckersGameLogic : GameLogic {
                                 result.append(thisSteps)
                             } else {
                                 let newBoard = Board<P>()
-                                board.copyToBoard(newBoard)
+                                board.copy(toBoard: newBoard)
                                 newBoard.applyChanges(effects)
                                 
-                                let arrayOfSubsequentSteps = recursiveCaptureOnBoard(newBoard, forPlayer: player, forCurrentCoords: t2c, withRange: range, inYdirections: yDirections)
+                                let arrayOfSubsequentSteps = recursiveCapture(onBoard: newBoard, forPlayer: player, forCurrentCoords: t2c, withRange: range, inYdirections: yDirections)
                                 if arrayOfSubsequentSteps.isEmpty {
                                     result.append(thisSteps)
                                 } else {
@@ -132,9 +132,9 @@ class CheckersGameLogic : GameLogic {
         return result
     }
     
-    private func getTargetPieceOnBoard(_ board: Board<P>, forPlayer player: Player, atCoords coords: Coords, forSourcePiece sourcePiece: P) -> P {
+    private func getTargetPiece(onBoard board: Board<P>, forPlayer player: Player, atCoords coords: Coords, forSourcePiece sourcePiece: P) -> P {
         let finalRow = player == Player.white ? 0 : board.rows-1
-        if (coords.y == finalRow) {return P.getKingForPlayer(player)}
+        if (coords.y == finalRow) {return P.getKing(forPlayer: player)}
         return sourcePiece
     }
     
@@ -144,25 +144,25 @@ class CheckersGameLogic : GameLogic {
         // remaining pieces
         for x in 0..<board.columns {
             for y in 0..<board.rows {
-                if (board[x, y].belongsToPlayer(.white)) {result += 1}
+                if (board[x, y].belongs(toPlayer: .white)) {result += 1}
                 if (board[x, y] == P.WhiteKing) {result += 3}
                 
-                if (board[x, y].belongsToPlayer(.black)) {result -= 1}
+                if (board[x, y].belongs(toPlayer: .black)) {result -= 1}
                 if (board[x, y] == P.BlackKing) {result -= 3}
             }
         }
         
         // mobility
-        let whiteMoves = getMovesOnBoard(board, forPlayer: .white, ignoreCaptureObligation: true)
-        let blackMoves = getMovesOnBoard(board, forPlayer: .black, ignoreCaptureObligation: true)
+        let whiteMoves = getMoves(onBoard: board, forPlayer: .white, ignoreCaptureObligation: true)
+        let blackMoves = getMoves(onBoard: board, forPlayer: .black, ignoreCaptureObligation: true)
         result += Double(whiteMoves.count)
         result -= Double(blackMoves.count)
         
         return result
     }
     
-    func getResultOnBoard(_ board: Board<P>, forPlayer player: Player) -> (finished: Bool, winner: Player?) {
-        let movesOfCurrentPlayer = getMovesOnBoard(board, forPlayer: player)
+    func getResult(onBoard board: Board<P>, forPlayer player: Player) -> (finished: Bool, winner: Player?) {
+        let movesOfCurrentPlayer = getMoves(onBoard: board, forPlayer: player)
         if movesOfCurrentPlayer.isEmpty {return (true, player.opponent)}
         return (false, nil)
     }

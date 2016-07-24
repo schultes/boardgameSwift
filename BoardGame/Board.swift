@@ -15,22 +15,22 @@ class Board<P: Piece> {
         pieces = [P](repeating: P.getEmpty(), count: columns*rows)
     }
     
-    private func indexIsValidForRow(_ row: Int, column: Int) -> Bool {
+    private func indexIsValidFor(row: Int, column: Int) -> Bool {
         return row >= 0 && row < rows && column >= 0 && column < columns
     }
     
-    private func indexForRow(_ row: Int, column: Int) -> Int {
+    private func indexFor(row: Int, column: Int) -> Int {
         return (row * columns) + column
     }
     
     subscript(column: Int, row: Int) -> P {
         get {
-            if (!indexIsValidForRow(row, column: column)) {return P.getInvalid()}
-            return pieces[indexForRow(row, column: column)]
+            if (!indexIsValidFor(row: row, column: column)) {return P.getInvalid()}
+            return pieces[indexFor(row: row, column: column)]
         }
         set {
-            assert(indexIsValidForRow(row, column: column), "Index out of range")
-            pieces[indexForRow(row, column: column)] = newValue
+            assert(indexIsValidFor(row: row, column: column), "Index out of range")
+            pieces[indexFor(row: row, column: column)] = newValue
         }
     }
     
@@ -40,7 +40,7 @@ class Board<P: Piece> {
         }
     }
     
-    func copyToBoard(_ copy: Board<P>) {
+    func copy(toBoard copy: Board<P>) {
         assert(columns == copy.columns && rows == copy.rows)
         copy.pieces = pieces
     }

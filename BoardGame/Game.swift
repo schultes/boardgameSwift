@@ -9,10 +9,10 @@
 protocol Game {
     var isCurrentPlayerWhite: Bool { get }
     var result: (finished: Bool, winner: Player?) { get }
-    func getFieldAsStringAt(_ coords: Coords) -> String
+    func getFieldAsString(atCoords coords: Coords) -> String
     func getCurrentTargets() -> [Coords]
     func restart()
-    func userActionAt(_ coords: Coords) -> Bool
+    func userAction(atCoords coords: Coords) -> Bool
     func aiMove() -> Bool
     func aiSetSearchDepth(_ depth: Int)
 }
@@ -40,10 +40,10 @@ class GenericGame<GL: GameLogic> : Game {
     
     /* a read-only computed property */
     var result: (finished: Bool, winner: Player?) {
-        return logic.getResultOnBoard(currentBoard, forPlayer: currentPlayer)
+        return logic.getResult(onBoard: currentBoard, forPlayer: currentPlayer)
     }
     
-    func getFieldAsStringAt(_ coords: Coords) -> String {
+    func getFieldAsString(atCoords coords: Coords) -> String {
         return currentBoard[coords.x, coords.y].asString
     }
     
@@ -65,7 +65,7 @@ class GenericGame<GL: GameLogic> : Game {
     }
     
     /* Returns true iff something at the model has changed. */
-    func userActionAt(_ coords: Coords) -> Bool {
+    func userAction(atCoords coords: Coords) -> Bool {
         if result.finished {return false}
 
         let (x, y) = coords
@@ -95,9 +95,9 @@ class GenericGame<GL: GameLogic> : Game {
                 }
             }
         } else {
-            var moves = logic.getMovesOnBoard(currentBoard, forPlayer: currentPlayer, forSourceCoords: coords)
+            var moves = logic.getMoves(onBoard: currentBoard, forPlayer: currentPlayer, forSourceCoords: coords)
             if (moves.isEmpty) {
-                if logic.getMovesOnBoard(currentBoard, forPlayer: currentPlayer).isEmpty {
+                if logic.getMoves(onBoard: currentBoard, forPlayer: currentPlayer).isEmpty {
                     // add empty dummy move if there is no real move
                     let dummyMove = Move<P>(coords: (x, y), value: nil)
                     moves.append(dummyMove)
@@ -114,7 +114,7 @@ class GenericGame<GL: GameLogic> : Game {
     /* Returns true iff something at the model has changed. */
     func aiMove() -> Bool {
         if result.finished {return false}
-        let nextMove = ai.getNextMoveOnBoard(currentBoard, forPlayer: currentPlayer)
+        let nextMove = ai.getNextMove(onBoard: currentBoard, forPlayer: currentPlayer)
         for step in nextMove.steps {
             currentBoard.applyChanges(step.effects)
         }

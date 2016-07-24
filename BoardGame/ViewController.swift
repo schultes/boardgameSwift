@@ -45,9 +45,9 @@ class ViewController: UIViewController {
     
     @IBAction func fieldClick(_ sender: UIButton) {
         if (uiDisabled) {return}
-        let coords = getFieldCoords(sender)
+        let coords = getCoords(ofField: sender)
         print(coords)
-        if game.userActionAt(coords) {
+        if game.userAction(atCoords: coords) {
             refreshUI()
             if (!game.isCurrentPlayerWhite) {aiMove()}
         }
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         for view in self.view.subviews {
             if let field = view as? UIButton {
                 if field.tag != 1 {continue}
-                let (x, y) = getFieldCoords(field)
+                let (x, y) = getCoords(ofField: field)
                 fields[x][y] = field
             }
         }
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
                         field.backgroundColor = UIColor.white()
                     }
                     field.isSelected = false
-                    field.setTitle(game.getFieldAsStringAt((x, y)), for: UIControlState())
+                    field.setTitle(game.getFieldAsString(atCoords: (x, y)), for: UIControlState())
                 }
             }
         }
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getFieldCoords(_ field: UIButton) -> Coords {
+    private func getCoords(ofField field: UIButton) -> Coords {
         let size = firstBoardField.frame.size
         let x = Int((field.frame.midX - firstBoardField.frame.origin.x) / size.width)
         let y = Int((field.frame.midY - firstBoardField.frame.origin.y) / size.height)
