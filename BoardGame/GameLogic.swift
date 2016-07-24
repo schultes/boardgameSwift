@@ -7,11 +7,11 @@
 //
 
 protocol GameLogic {
-    typealias P: Piece
+    associatedtype P: Piece
     
     func getInitialBoard() -> Board<P>
-    func getMovesOnBoard(board: Board<P>, forPlayer: Player, forSourceCoords: Coords) -> [Move<P>]
-    func getMovesOnBoard(board: Board<P>, forPlayer player: Player) -> [Move<P>]
-    func evaluateBoard(board: Board<P>) -> Double
-    func getResultOnBoard(board: Board<P>, forPlayer: Player) -> (finished: Bool, winner: Player?)
+    func getMovesOnBoard(_ board: Board<P>, forPlayer: Player, forSourceCoords: Coords) -> [Move<P>]
+    func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player) -> [Move<P>]
+    func evaluateBoard(_ board: Board<P>) -> Double
+    func getResultOnBoard(_ board: Board<P>, forPlayer: Player) -> (finished: Bool, winner: Player?)
 }

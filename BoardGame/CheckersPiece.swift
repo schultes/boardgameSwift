@@ -26,17 +26,17 @@ enum CheckersPiece : String, Piece {
         return rawValue
     }
     
-    func belongsToPlayer(player: Player) -> Bool {
-        if ((self == CheckersPiece.WhiteMan) || (self == CheckersPiece.WhiteKing)) && (player == Player.White) {return true}
-        if ((self == CheckersPiece.BlackMan) || (self == CheckersPiece.BlackKing)) && (player == Player.Black) {return true}
+    func belongsToPlayer(_ player: Player) -> Bool {
+        if ((self == CheckersPiece.WhiteMan) || (self == CheckersPiece.WhiteKing)) && (player == Player.white) {return true}
+        if ((self == CheckersPiece.BlackMan) || (self == CheckersPiece.BlackKing)) && (player == Player.black) {return true}
         return false;
     }
     
-    static func getManForPlayer(player: Player) -> CheckersPiece {
-        return player == Player.White ? .WhiteMan : .BlackMan
+    static func getManForPlayer(_ player: Player) -> CheckersPiece {
+        return player == Player.white ? .WhiteMan : .BlackMan
     }
     
-    static func getKingForPlayer(player: Player) -> CheckersPiece {
-        return player == Player.White ? .WhiteKing : .BlackKing
+    static func getKingForPlayer(_ player: Player) -> CheckersPiece {
+        return player == Player.white ? .WhiteKing : .BlackKing
     }
 }

@@ -14,19 +14,19 @@ class AI<P: Piece, GL: GameLogic where GL.P == P> {
         self.logic = logic
     }
     
-    func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player) -> Move<P> {
-        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.White, withDepth: maxSearchDepth)
+    func getNextMoveOnBoard(_ board: Board<P>, forPlayer player: Player) -> Move<P> {
+        return getNextMoveOnBoard(board, forPlayer: player, maximizingValue: player == Player.white, withDepth: maxSearchDepth)
     }
     
-    private func getNextMoveOnBoard(board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
+    private func getNextMoveOnBoard(_ board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
         let newBoard = Board<P>()
         var bestMove: Move<P>?
         var allMoves = logic.getMovesOnBoard(board, forPlayer: player)
         
-        for var i = 0; i < allMoves.count; i++ {
+        for i in 0 ..< allMoves.count {
             var move = allMoves[i]
             if depth == maxSearchDepth {
-                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)", appendNewline: false)
+                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)", terminator: "")
             }
             board.copyToBoard(newBoard)
             for step in move.steps {

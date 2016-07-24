@@ -21,7 +21,7 @@ class ReversiGameLogic : GameLogic {
         return board
     }
     
-    func getMovesOnBoard(board: Board<P>, forPlayer player: Player, forSourceCoords sourceCoords: Coords) -> [Move<P>] {
+    func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player, forSourceCoords sourceCoords: Coords) -> [Move<P>] {
         var result = [Move<P>]()
         let playersPiece = P.getPieceForPlayer(player)
         if board[sourceCoords.x, sourceCoords.y] == P.Empty {
@@ -34,9 +34,12 @@ class ReversiGameLogic : GameLogic {
                     var tmp = Move<P>.Patch()
                     var x = sourceCoords.x + dx
                     var y = sourceCoords.y + dy
-                    for ;board[x, y].belongsToPlayer(opponent); x+=dx, y+=dy {
+                    while board[x, y].belongsToPlayer(opponent) {
                         let newElement = [(coords: (x, y) as Coords, newPiece: playersPiece)]
                         tmp += newElement
+                        
+                        x += dx
+                        y += dy
                     }
                     if (tmp.isEmpty) {continue}
                     if (board[x, y].belongsToPlayer(player)) {
@@ -55,7 +58,7 @@ class ReversiGameLogic : GameLogic {
         return result
     }
     
-    func getMovesOnBoard(board: Board<P>, forPlayer player: Player) -> [Move<P>] {
+    func getMovesOnBoard(_ board: Board<P>, forPlayer player: Player) -> [Move<P>] {
         var result = [Move<P>]()
         for x in 0..<board.columns {
             for y in 0..<board.rows {
@@ -65,27 +68,27 @@ class ReversiGameLogic : GameLogic {
         return result
     }
     
-    func evaluateBoard(board: Board<P>) -> Double {
+    func evaluateBoard(_ board: Board<P>) -> Double {
         var result = 0.0
         for x in 0..<board.columns {
             for y in 0..<board.rows {
-                if (board[x, y].belongsToPlayer(.White)) {result += 1}
-                if (board[x, y].belongsToPlayer(.Black)) {result -= 1}
+                if (board[x, y].belongsToPlayer(.white)) {result += 1}
+                if (board[x, y].belongsToPlayer(.black)) {result -= 1}
             }
         }
         return result
     }
     
-    func getResultOnBoard(board: Board<P>, forPlayer _: Player) -> (finished: Bool, winner: Player?) {
+    func getResultOnBoard(_ board: Board<P>, forPlayer _: Player) -> (finished: Bool, winner: Player?) {
         var finished = true
         var winner: Player?
-        let movesOfBothPlayers = [getMovesOnBoard(board, forPlayer: Player.White), getMovesOnBoard(board, forPlayer: Player.Black)]
+        let movesOfBothPlayers = [getMovesOnBoard(board, forPlayer: Player.white), getMovesOnBoard(board, forPlayer: Player.black)]
         for movesOfOnePlayer in movesOfBothPlayers {
             if !movesOfOnePlayer.isEmpty {finished = false}
         }
         if (finished) {
-            if (evaluateBoard(board) > 0) {winner = .White}
-            if (evaluateBoard(board) < 0) {winner = .Black}
+            if (evaluateBoard(board) > 0) {winner = .white}
+            if (evaluateBoard(board) < 0) {winner = .black}
         }
         return (finished, winner)
     }

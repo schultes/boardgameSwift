@@ -24,13 +24,13 @@ enum ReversiPiece : String, Piece {
         return rawValue
     }
     
-    func belongsToPlayer(player: Player) -> Bool {
-        if ((self == ReversiPiece.White) && (player == Player.White)) {return true;}
-        if ((self == ReversiPiece.Black) && (player == Player.Black)) {return true;}
+    func belongsToPlayer(_ player: Player) -> Bool {
+        if ((self == ReversiPiece.White) && (player == Player.white)) {return true;}
+        if ((self == ReversiPiece.Black) && (player == Player.black)) {return true;}
         return false;
     }
     
-    static func getPieceForPlayer(player: Player) -> ReversiPiece {
-        return player == Player.White ? .White : .Black
+    static func getPieceForPlayer(_ player: Player) -> ReversiPiece {
+        return player == Player.white ? .White : .Black
     }
 }

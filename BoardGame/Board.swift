@@ -12,14 +12,14 @@ class Board<P: Piece> {
     var pieces: [P]
     
     init() {
-        pieces = [P](count: columns*rows, repeatedValue: P.getEmpty())
+        pieces = [P](repeating: P.getEmpty(), count: columns*rows)
     }
     
-    private func indexIsValidForRow(row: Int, column: Int) -> Bool {
+    private func indexIsValidForRow(_ row: Int, column: Int) -> Bool {
         return row >= 0 && row < rows && column >= 0 && column < columns
     }
     
-    private func indexForRow(row: Int, column: Int) -> Int {
+    private func indexForRow(_ row: Int, column: Int) -> Int {
         return (row * columns) + column
     }
     
@@ -34,13 +34,13 @@ class Board<P: Piece> {
         }
     }
     
-    func applyChanges(changes: Move<P>.Patch) {
+    func applyChanges(_ changes: Move<P>.Patch) {
         for change in changes {
             self[change.coords.x, change.coords.y] = change.newPiece
         }
     }
     
-    func copyToBoard(copy: Board<P>) {
+    func copyToBoard(_ copy: Board<P>) {
         assert(columns == copy.columns && rows == copy.rows)
         copy.pieces = pieces
     }

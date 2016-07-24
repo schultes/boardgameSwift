@@ -9,18 +9,18 @@
 protocol Game {
     var isCurrentPlayerWhite: Bool { get }
     var result: (finished: Bool, winner: Player?) { get }
-    func getFieldAsStringAt(coords: Coords) -> String
+    func getFieldAsStringAt(_ coords: Coords) -> String
     func getCurrentTargets() -> [Coords]
     func restart()
-    func userActionAt(coords: Coords) -> Bool
+    func userActionAt(_ coords: Coords) -> Bool
     func aiMove() -> Bool
-    func aiSetSearchDepth(depth: Int)
+    func aiSetSearchDepth(_ depth: Int)
 }
 
 class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     private let logic: GL
     private let ai: AI<P, GL>
-    private var currentPlayer = Player.White
+    private var currentPlayer = Player.white
     private var currentBoard: Board<P>
     private var currentMoves: [Move<P>]?
     private var currentStepIndex = 0
@@ -33,7 +33,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     
     /* a read-only computed property */
     var isCurrentPlayerWhite: Bool {
-        return currentPlayer == Player.White
+        return currentPlayer == Player.white
     }
     
     /* a read-only computed property */
@@ -41,7 +41,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         return logic.getResultOnBoard(currentBoard, forPlayer: currentPlayer)
     }
     
-    func getFieldAsStringAt(coords: Coords) -> String {
+    func getFieldAsStringAt(_ coords: Coords) -> String {
         return currentBoard[coords.x, coords.y].asString
     }
     
@@ -57,13 +57,13 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     }
     
     func restart() {
-        currentPlayer = Player.White
+        currentPlayer = Player.white
         currentBoard = logic.getInitialBoard()
         currentMoves = nil
     }
     
     /* Returns true iff something at the model has changed. */
-    func userActionAt(coords: Coords) -> Bool {
+    func userActionAt(_ coords: Coords) -> Bool {
         if result.finished {return false}
 
         let (x, y) = coords
@@ -86,7 +86,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
                             }
                         }
                         currentMoves = remainingMoves
-                        currentStepIndex++
+                        currentStepIndex += 1
                     }
                     
                     return true
@@ -121,7 +121,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
         return true
     }
     
-    func aiSetSearchDepth(depth: Int) {
+    func aiSetSearchDepth(_ depth: Int) {
         ai.maxSearchDepth = depth
     }
 }

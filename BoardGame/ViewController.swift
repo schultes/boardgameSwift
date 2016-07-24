@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     var game : Game = GenericGame<ReversiPiece, ReversiGameLogic>(logic: ReversiGameLogic())
     
     
-    @IBAction func aiSearchDepthChanged(sender: UISlider) {
+    @IBAction func aiSearchDepthChanged(_ sender: UISlider) {
         let searchDepth = Int(sender.value)
         aiSearchDepthLabel.text = "KI-Suchtiefe: \(searchDepth)"
         game.aiSetSearchDepth(searchDepth)
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         refreshUI()
     }
     
-    @IBAction func gameSelected(sender: UISegmentedControl) {
+    @IBAction func gameSelected(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             game = GenericGame<ReversiPiece, ReversiGameLogic>(logic: ReversiGameLogic())
         } else {
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         refreshUI()
     }
     
-    @IBAction func fieldClick(sender: UIButton) {
+    @IBAction func fieldClick(_ sender: UIButton) {
         if (uiDisabled) {return}
         let coords = getFieldCoords(sender)
         print(coords)
@@ -55,22 +55,22 @@ class ViewController: UIViewController {
     
     private func aiMove() {
         disableUI(true)
-        let globalQueuePriority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(globalQueuePriority, 0)) {
+        let globalQueuePriority = DispatchQueue.GlobalAttributes.qosDefault
+        DispatchQueue.global(attributes: globalQueuePriority).async {
             let somethingChanged = self.game.aiMove()
             
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if somethingChanged {self.refreshUI()}
                 self.disableUI(false)
             }
         }
     }
     
-    private func disableUI(disable: Bool) {
+    private func disableUI(_ disable: Bool) {
         uiDisabled = disable
-        aiSearchDepthSlider.enabled = !disable
-        restartButton.enabled = !disable
-        gameSelectionControl.enabled = !disable
+        aiSearchDepthSlider.isEnabled = !disable
+        restartButton.isEnabled = !disable
+        gameSelectionControl.isEnabled = !disable
     }
     
     override func viewDidLoad() {
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     private func initFields() {
         // outlet collection would probably be nicer, but in Xcode 6 beta 4 there are problems with it!
         for _ in 0..<BOARD_SIZE {
-            fields.append([UIButton?](count: BOARD_SIZE, repeatedValue: nil))
+            fields.append([UIButton?](repeating: nil, count: BOARD_SIZE))
         }
         for view in self.view.subviews {
             if let field = view as? UIButton {
@@ -99,10 +99,10 @@ class ViewController: UIViewController {
             for y in 0..<BOARD_SIZE {
                 if let field = fields[x][y] {
                     if (x+y) % 2 == 0 {
-                        field.backgroundColor = UIColor.whiteColor()
+                        field.backgroundColor = UIColor.white()
                     }
-                    field.selected = false
-                    field.setTitle(game.getFieldAsStringAt((x, y)), forState: .Normal)
+                    field.isSelected = false
+                    field.setTitle(game.getFieldAsStringAt((x, y)), for: UIControlState())
                 }
             }
         }
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         // set selected state
         for target in game.getCurrentTargets() {
             if let field = fields[target.x][target.y] {
-                field.selected = true
+                field.isSelected = true
             }
         }
         
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
         let result = game.result
         if result.finished {
             if let winner = result.winner {
-                let player = winner == Player.White ? "Weiß" : "Schwarz"
+                let player = winner == Player.white ? "Weiß" : "Schwarz"
                 stateLabel.text = player + " gewinnt"
             } else {
                 stateLabel.text = "Unentschieden"
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getFieldCoords(field: UIButton) -> Coords {
+    private func getFieldCoords(_ field: UIButton) -> Coords {
         let size = firstBoardField.frame.size
         let x = Int((field.frame.midX - firstBoardField.frame.origin.x) / size.width)
         let y = Int((field.frame.midY - firstBoardField.frame.origin.y) / size.height)

@@ -7,9 +7,9 @@
 //
 
 enum Player {
-    case White, Black
+    case white, black
     
     var opponent : Player {
-        return self == Player.White ? .Black : .White
+        return self == Player.white ? .black : .white
     }
 }
