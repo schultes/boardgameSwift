@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 THM. All rights reserved.
 //
 
-class AI<P: Piece, GL: GameLogic where GL.P == P> {
+class AI<GL: GameLogic> {
+    typealias P = GL.P
+    
     var maxSearchDepth = 2
     let logic: GL
     

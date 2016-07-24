@@ -17,9 +17,11 @@ protocol Game {
     func aiSetSearchDepth(_ depth: Int)
 }
 
-class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
+class GenericGame<GL: GameLogic> : Game {
+    typealias P = GL.P
+    
     private let logic: GL
-    private let ai: AI<P, GL>
+    private let ai: AI<GL>
     private var currentPlayer = Player.white
     private var currentBoard: Board<P>
     private var currentMoves: [Move<P>]?
@@ -27,7 +29,7 @@ class GenericGame<P: Piece, GL: GameLogic where GL.P == P> : Game {
     
     init(logic: GL) {
         self.logic = logic
-        self.ai = AI<P, GL>(logic: logic)
+        self.ai = AI<GL>(logic: logic)
         currentBoard = logic.getInitialBoard()
     }
     
