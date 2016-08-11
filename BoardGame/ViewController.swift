@@ -55,8 +55,7 @@ class ViewController: UIViewController {
     
     private func aiMove() {
         disableUI(true)
-        let globalQueuePriority = DispatchQueue.GlobalAttributes.qosDefault
-        DispatchQueue.global(attributes: globalQueuePriority).async {
+        DispatchQueue.global().async {
             let somethingChanged = self.game.aiMove()
             
             DispatchQueue.main.async {
@@ -99,7 +98,7 @@ class ViewController: UIViewController {
             for y in 0..<BOARD_SIZE {
                 if let field = fields[x][y] {
                     if (x+y) % 2 == 0 {
-                        field.backgroundColor = UIColor.white()
+                        field.backgroundColor = UIColor.white
                     }
                     field.isSelected = false
                     field.setTitle(game.getFieldAsString(atCoords: (x, y)), for: UIControlState())
