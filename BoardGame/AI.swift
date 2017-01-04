@@ -42,7 +42,7 @@ class AI<GL: GameLogic> {
             if depth == maxSearchDepth {
                 print(", current value: \(move.value!) ")
             }
-            if (bestMove == nil) || ((move.value > bestMove!.value) == maximizingValue) {
+            if (bestMove == nil) || ((move.value! > bestMove!.value!) == maximizingValue) {
                 bestMove = move
             }
         }
