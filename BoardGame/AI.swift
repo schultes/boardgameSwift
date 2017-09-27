@@ -28,7 +28,7 @@ class AI<GL: GameLogic> {
         for i in 0 ..< allMoves.count {
             var move = allMoves[i]
             if depth == maxSearchDepth {
-                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value)", terminator: "")
+                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value as Double?)", terminator: "")
             }
             board.copy(toBoard: newBoard)
             for step in move.steps {
