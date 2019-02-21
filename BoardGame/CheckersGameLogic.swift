@@ -96,6 +96,7 @@ class CheckersGameLogic : GameLogic {
                     let tx = cc.x + i*dx
                     let ty = cc.y + i*dy
                     let tc: Coords = (tx, ty)
+                    if board[tx, ty].belongs(toPlayer: player) {break;}
                     if board[tx, ty].belongs(toPlayer: player.opponent) {
                         let t2x = tx + dx
                         let t2y = ty + dy
