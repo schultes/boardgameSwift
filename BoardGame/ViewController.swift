@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                         field.backgroundColor = UIColor.white
                     }
                     field.isSelected = false
-                    field.setTitle(game.getFieldAsString(atCoords: (x, y)), for: UIControlState())
+                    field.setTitle(game.getFieldAsString(atCoords: (x, y)), for: UIControl.State())
                 }
             }
         }
