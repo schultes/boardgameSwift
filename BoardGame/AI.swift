@@ -21,7 +21,6 @@ class AI<GL: GameLogic> {
     }
     
     private func getNextMove(onBoard board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
-        let newBoard = Board<P>()
         var bestMove: Move<P>?
         var allMoves = logic.getMoves(onBoard: board, forPlayer: player)
         
@@ -30,7 +29,7 @@ class AI<GL: GameLogic> {
             if depth == maxSearchDepth {
                 print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value as Double?)", terminator: "")
             }
-            board.copy(toBoard: newBoard)
+            let newBoard = Board<P>(board: board)
             for step in move.steps {
                 newBoard.applyChanges(step.effects)
             }

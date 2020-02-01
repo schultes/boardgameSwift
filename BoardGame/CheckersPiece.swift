@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 THM. All rights reserved.
 //
 
-enum CheckersPiece : String, Piece {
+enum CheckersPiece : String, CustomStringConvertible {
     case Empty = "  "
     case Invalid = "x"
     case WhiteMan = "◎"
@@ -14,15 +14,7 @@ enum CheckersPiece : String, Piece {
     case WhiteKing = "♕"
     case BlackKing = "♛"
     
-    static func getEmpty() -> CheckersPiece {
-        return .Empty
-    }
-    
-    static func getInvalid() -> CheckersPiece {
-        return .Invalid
-    }
-    
-    var asString: String {
+    var description: String {
         return rawValue
     }
     

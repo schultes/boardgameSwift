@@ -6,21 +6,13 @@
 //  Copyright (c) 2014 THM. All rights reserved.
 //
 
-enum ReversiPiece : String, Piece {
+enum ReversiPiece : String, CustomStringConvertible {
     case Empty = "  "
     case Invalid = "x"
     case White = "◎"
     case Black = "◉"
     
-    static func getEmpty() -> ReversiPiece {
-        return .Empty
-    }
-    
-    static func getInvalid() -> ReversiPiece {
-        return .Invalid
-    }
-    
-    var asString: String {
+    var description: String {
         return rawValue
     }
     

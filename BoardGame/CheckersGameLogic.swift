@@ -11,7 +11,7 @@ class CheckersGameLogic : GameLogic {
     typealias P = CheckersPiece
     
     func getInitialBoard() -> Board<P> {
-        let board = Board<P>()
+        let board = Board<P>(empty: P.Empty, invalid: P.Invalid)
         for x in 0..<board.columns {
             for y in 0..<3 {
                 if (x+y) % 2 == 1 {
@@ -110,8 +110,7 @@ class CheckersGameLogic : GameLogic {
                                 // promotion took place (man -> king): stop recursion!
                                 result.append(thisSteps)
                             } else {
-                                let newBoard = Board<P>()
-                                board.copy(toBoard: newBoard)
+                                let newBoard = Board<P>(board: board)
                                 newBoard.applyChanges(effects)
                                 
                                 let arrayOfSubsequentSteps = recursiveCapture(onBoard: newBoard, forPlayer: player, forCurrentCoords: t2c, withRange: range, inYdirections: yDirections)

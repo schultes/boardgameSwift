@@ -7,7 +7,7 @@
 //
 
 protocol GameLogic {
-    associatedtype P: Piece
+    associatedtype P
     
     func getInitialBoard() -> Board<P>
     func getMoves(onBoard board: Board<P>, forPlayer: Player, forSourceCoords: Coords) -> [Move<P>]

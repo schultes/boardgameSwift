@@ -44,7 +44,7 @@ class GenericGame<GL: GameLogic> : Game {
     }
     
     func getFieldAsString(atCoords coords: Coords) -> String {
-        return currentBoard[coords.x, coords.y].asString
+        return String(describing: currentBoard[coords.x, coords.y])
     }
     
     func getCurrentTargets() -> [Coords] {

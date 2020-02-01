@@ -6,13 +6,20 @@
 //  Copyright (c) 2014 THM. All rights reserved.
 //
 
-class Board<P: Piece> {
+class Board<P> {
     let columns = 8
     let rows = 8
     var pieces: [P]
+    let invalid: P
     
-    init() {
-        pieces = [P](repeating: P.getEmpty(), count: columns*rows)
+    init(empty: P, invalid: P) {
+        pieces = [P](repeating: empty, count: columns*rows)
+        self.invalid = invalid
+    }
+    
+    init(board: Board<P>) {
+        pieces = board.pieces
+        invalid = board.invalid
     }
     
     private func indexIsValidFor(row: Int, column: Int) -> Bool {
@@ -25,7 +32,7 @@ class Board<P: Piece> {
     
     subscript(column: Int, row: Int) -> P {
         get {
-            if (!indexIsValidFor(row: row, column: column)) {return P.getInvalid()}
+            if (!indexIsValidFor(row: row, column: column)) {return invalid}
             return pieces[indexFor(row: row, column: column)]
         }
         set {
@@ -38,11 +45,6 @@ class Board<P: Piece> {
         for change in changes {
             self[change.coords.x, change.coords.y] = change.newPiece
         }
-    }
-    
-    func copy(toBoard copy: Board<P>) {
-        assert(columns == copy.columns && rows == copy.rows)
-        copy.pieces = pieces
     }
 
 }

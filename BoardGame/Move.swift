@@ -9,7 +9,7 @@
 
 typealias Coords = (x: Int, y: Int)
 
-struct Move<P: Piece> {
+struct Move<P> {
     typealias Patch = [(coords: Coords, newPiece: P)]
     typealias Steps = [(target: Coords, effects: Patch)]
     

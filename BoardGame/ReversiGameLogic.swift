@@ -11,7 +11,7 @@ class ReversiGameLogic : GameLogic {
     typealias P = ReversiPiece
     
     func getInitialBoard() -> Board<P> {
-        let board = Board<P>()
+        let board = Board<P>(empty: P.Empty, invalid: P.Invalid)
         let x = board.columns / 2 - 1
         let y = board.rows / 2 - 1
         board[x, y] = .White;
