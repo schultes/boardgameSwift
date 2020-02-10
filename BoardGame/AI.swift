@@ -47,7 +47,10 @@ class AI<GL: GameLogic> {
         }
         if (bestMove == nil) {
             // return empty dummy move if there is no real move
-            bestMove = Move<P>(coords: (0, 0), value: logic.evaluateBoard(board))
+            bestMove = Move<P>(
+                source: (0, 0),
+                steps: [(target: (0, 0), effects: Move<P>.Patch())],
+                value: logic.evaluateBoard(board))
         }
         assert(bestMove!.value != nil) // value of next move is guaranteed to be set
         return bestMove!

@@ -99,7 +99,10 @@ class GenericGame<GL: GameLogic> : Game {
             if (moves.isEmpty) {
                 if logic.getMoves(onBoard: currentBoard, forPlayer: currentPlayer).isEmpty {
                     // add empty dummy move if there is no real move
-                    let dummyMove = Move<P>(coords: (x, y), value: nil)
+                    let dummyMove = Move<P>(
+                        source: (x, y),
+                        steps: [(target: (x, y), effects: Move<P>.Patch())],
+                        value: nil)
                     moves.append(dummyMove)
                 }
             }
