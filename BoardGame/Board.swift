@@ -41,7 +41,7 @@ class Board<P> {
         }
     }
     
-    func applyChanges(_ changes: [Move<P>.Effect]) {
+    func applyChanges(_ changes: [Effect<P>]) {
         for change in changes {
             self[change.coords.x, change.coords.y] = change.newPiece
         }

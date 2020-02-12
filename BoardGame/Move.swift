@@ -8,12 +8,11 @@
 
 
 typealias Coords = (x: Int, y: Int)
+typealias Effect<P> = (coords: Coords, newPiece: P)
+typealias Step<P> = (target: Coords, effects: [Effect<P>])
 
 struct Move<P> {
-    typealias Effect = (coords: Coords, newPiece: P)
-    typealias Step = (target: Coords, effects: [Effect])
-    
     let source: Coords
-    let steps: [Step]
+    let steps: [Step<P>]
     var value: Double?
 }
