@@ -26,12 +26,12 @@ class ReversiGameLogic : GameLogic {
         let playersPiece = P.getPiece(forPlayer: player)
         if board[sourceCoords.x, sourceCoords.y] == P.Empty {
             let opponent = player.opponent
-            var allChanges = Move<P>.Patch()
+            var allChanges = [Move<P>.Effect]()
             
             for dx in -1...1 {
                 for dy in -1...1 {
                     if dx == 0 && dy == 0 {continue}
-                    var tmp = Move<P>.Patch()
+                    var tmp = [Move<P>.Effect]()
                     var x = sourceCoords.x + dx
                     var y = sourceCoords.y + dy
                     while board[x, y].belongs(toPlayer: opponent) {

@@ -101,7 +101,7 @@ class GenericGame<GL: GameLogic> : Game {
                     // add empty dummy move if there is no real move
                     let dummyMove = Move<P>(
                         source: (x, y),
-                        steps: [(target: (x, y), effects: Move<P>.Patch())],
+                        steps: [(target: (x, y), effects: [Move<P>.Effect]())],
                         value: nil)
                     moves.append(dummyMove)
                 }

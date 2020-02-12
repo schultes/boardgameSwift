@@ -87,8 +87,8 @@ class CheckersGameLogic : GameLogic {
         return !captureMoves.isEmpty ? captureMoves : normalMoves
     }
     
-    private func recursiveCapture(onBoard board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: [Int]) -> [Move<P>.Steps] {
-        var result = Array<Move<P>.Steps>()
+    private func recursiveCapture(onBoard board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: [Int]) -> [[Move<P>.Step]] {
+        var result = [[Move<P>.Step]]()
         
         for dy in yDirections {
             for dx in [-1, 1] {
@@ -104,7 +104,7 @@ class CheckersGameLogic : GameLogic {
                         if board[t2x, t2y] == P.Empty {
                             let sourcePiece = board[cc.x, cc.y]
                             let targetPiece = getTargetPiece(onBoard: board, forPlayer: player, atCoords: t2c, forSourcePiece: sourcePiece)
-                            let effects : Move<P>.Patch = [(cc, P.Empty), (tc, P.Empty), (t2c, targetPiece)]
+                            let effects: [Move<P>.Effect] = [(cc, P.Empty), (tc, P.Empty), (t2c, targetPiece)]
                             let thisSteps = [(target: t2c, effects: effects)]
                             if sourcePiece != targetPiece {
                                 // promotion took place (man -> king): stop recursion!

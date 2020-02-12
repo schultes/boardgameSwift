@@ -10,10 +10,10 @@
 typealias Coords = (x: Int, y: Int)
 
 struct Move<P> {
-    typealias Patch = [(coords: Coords, newPiece: P)]
-    typealias Steps = [(target: Coords, effects: Patch)]
+    typealias Effect = (coords: Coords, newPiece: P)
+    typealias Step = (target: Coords, effects: [Effect])
     
     let source: Coords
-    let steps: Steps
+    let steps: [Step]
     var value: Double?
 }
