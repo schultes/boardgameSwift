@@ -8,7 +8,7 @@
 
 protocol Game {
     var isCurrentPlayerWhite: Bool { get }
-    var result: (finished: Bool, winner: Player?) { get }
+    var result: GameResult { get }
     func getFieldAsString(atCoords coords: Coords) -> String
     func getCurrentTargets() -> [Coords]
     func restart()
@@ -39,7 +39,7 @@ class GenericGame<GL: GameLogic> : Game {
     }
     
     /* a read-only computed property */
-    var result: (finished: Bool, winner: Player?) {
+    var result: GameResult {
         return logic.getResult(onBoard: currentBoard, forPlayer: currentPlayer)
     }
     

@@ -79,7 +79,7 @@ class ReversiGameLogic : GameLogic {
         return result
     }
     
-    func getResult(onBoard board: Board<P>, forPlayer _: Player) -> (finished: Bool, winner: Player?) {
+    func getResult(onBoard board: Board<P>, forPlayer _: Player) -> GameResult {
         var finished = true
         var winner: Player?
         let movesOfBothPlayers = [getMoves(onBoard: board, forPlayer: Player.white), getMoves(onBoard: board, forPlayer: Player.black)]

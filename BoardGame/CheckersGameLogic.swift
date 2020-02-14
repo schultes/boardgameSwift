@@ -161,7 +161,7 @@ class CheckersGameLogic : GameLogic {
         return result
     }
     
-    func getResult(onBoard board: Board<P>, forPlayer player: Player) -> (finished: Bool, winner: Player?) {
+    func getResult(onBoard board: Board<P>, forPlayer player: Player) -> GameResult {
         let movesOfCurrentPlayer = getMoves(onBoard: board, forPlayer: player)
         if movesOfCurrentPlayer.isEmpty {return (true, player.opponent)}
         return (false, nil)
