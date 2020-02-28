@@ -18,7 +18,7 @@ class Board<P> {
     }
     
     init(board: Board<P>) {
-        pieces = board.pieces
+        pieces = board.pieces.copy()
         invalid = board.invalid
     }
     

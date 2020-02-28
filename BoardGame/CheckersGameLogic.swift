@@ -15,12 +15,12 @@ class CheckersGameLogic : GameLogic {
         for x in 0..<board.columns {
             for y in 0..<3 {
                 if (x+y) % 2 == 1 {
-                    board[x, y] = .BlackMan
+                    board[x, y] = P.BlackMan
                 }
             }
             for y in board.rows-3..<board.rows {
                 if (x+y) % 2 == 1 {
-                    board[x, y] = .WhiteMan
+                    board[x, y] = P.WhiteMan
                 }
             }
         }
@@ -87,7 +87,7 @@ class CheckersGameLogic : GameLogic {
         return !captureMoves.isEmpty ? captureMoves : normalMoves
     }
     
-    private func recursiveCapture(onBoard board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: [Int]) -> [[Step<P>]] {
+    private func recursiveCapture(onBoard board: Board<P>, forPlayer player: Player, forCurrentCoords cc: Coords, withRange range: CountableClosedRange<Int>, inYdirections yDirections: Array<Int>) -> [[Step<P>]] {
         var result = [[Step<P>]]()
         
         for dy in yDirections {
@@ -144,17 +144,17 @@ class CheckersGameLogic : GameLogic {
         // remaining pieces
         for x in 0..<board.columns {
             for y in 0..<board.rows {
-                if (board[x, y].belongs(toPlayer: .white)) {result += 1}
+                if (board[x, y].belongs(toPlayer: Player.white)) {result += 1}
                 if (board[x, y] == P.WhiteKing) {result += 3}
                 
-                if (board[x, y].belongs(toPlayer: .black)) {result -= 1}
+                if (board[x, y].belongs(toPlayer: Player.black)) {result -= 1}
                 if (board[x, y] == P.BlackKing) {result -= 3}
             }
         }
         
         // mobility
-        let whiteMoves = getMoves(onBoard: board, forPlayer: .white, ignoreCaptureObligation: true)
-        let blackMoves = getMoves(onBoard: board, forPlayer: .black, ignoreCaptureObligation: true)
+        let whiteMoves = getMoves(onBoard: board, forPlayer: Player.white, ignoreCaptureObligation: true)
+        let blackMoves = getMoves(onBoard: board, forPlayer: Player.black, ignoreCaptureObligation: true)
         result += Double(whiteMoves.count)
         result -= Double(blackMoves.count)
         
