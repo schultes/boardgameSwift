@@ -21,13 +21,13 @@ class AI<GL: GameLogic> {
     }
     
     private func getNextMove(onBoard board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
-        var bestMove: Move<P>?
-        var allMoves = logic.getMoves(onBoard: board, forPlayer: player)
+        var bestMove: Move<P>? = nil
+        let allMoves = logic.getMoves(onBoard: board, forPlayer: player)
         
         for i in 0 ..< allMoves.count {
             var move = allMoves[i]
             if depth == maxSearchDepth {
-                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value as Double?)", terminator: "")
+                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value ?? 0)", terminator: "")
             }
             let newBoard = Board<P>(board: board)
             for step in move.steps {
@@ -48,8 +48,8 @@ class AI<GL: GameLogic> {
         if (bestMove == nil) {
             // return empty dummy move if there is no real move
             bestMove = Move<P>(
-                source: (0, 0),
-                steps: [(target: (0, 0), effects: [Effect<P>]())],
+                source: (x: 0, y: 0),
+                steps: [(target: (x: 0, y: 0), effects: [Effect<P>]())],
                 value: logic.evaluateBoard(board))
         }
         assert(bestMove!.value != nil) // value of next move is guaranteed to be set
