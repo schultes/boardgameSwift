@@ -29,7 +29,7 @@ class GenericGame<GL: GameLogic> : Game {
     
     init(logic: GL) {
         self.logic = logic
-        self.ai = AI<GL>(logic: logic)
+        self.ai = AI(logic: logic)
         currentBoard = logic.getInitialBoard()
     }
     
@@ -72,10 +72,11 @@ class GenericGame<GL: GameLogic> : Game {
         
         if (currentMoves != nil) {
             for move in currentMoves! {
-                if x == move.steps[currentStepIndex].target.x && y == move.steps[currentStepIndex].target.y {
-                    currentBoard.applyChanges(move.steps[currentStepIndex].effects)
+                let steps = move.steps
+                if x == steps[currentStepIndex].target.x && y == steps[currentStepIndex].target.y {
+                    currentBoard.applyChanges(steps[currentStepIndex].effects)
                     
-                    if (currentStepIndex+1 == move.steps.count) {
+                    if (currentStepIndex+1 == steps.count) {
                         currentMoves = nil
                         currentStepIndex = 0
                         currentPlayer = currentPlayer.opponent
