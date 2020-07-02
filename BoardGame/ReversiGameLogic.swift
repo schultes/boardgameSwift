@@ -35,7 +35,7 @@ class ReversiGameLogic : GameLogic {
                     var x = sourceCoords.x + dx
                     var y = sourceCoords.y + dy
                     while board[x, y].belongs(toPlayer: opponent) {
-                        let newElement = [(coords: (x, y) as Coords, newPiece: playersPiece)]
+                        let newElement = [(coords: (x, y), newPiece: playersPiece)]
                         tmp += newElement
                         
                         x += dx
