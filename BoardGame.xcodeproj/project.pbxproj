@@ -97,12 +97,12 @@
 		AE168004198FB08C007DDD0D /* BoardGame */ = {
 			isa = PBXGroup;
 			children = (
+				AE537B2E24AE057200339AE0 /* Model */,
 				AE168007198FB08C007DDD0D /* AppDelegate.swift */,
 				AE168009198FB08C007DDD0D /* ViewController.swift */,
 				AE16800B198FB08C007DDD0D /* Main.storyboard */,
 				AE16800E198FB08C007DDD0D /* Images.xcassets */,
 				AE168005198FB08C007DDD0D /* Supporting Files */,
-				AE168027198FB148007DDD0D /* Model */,
 			);
 			path = BoardGame;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AE168027198FB148007DDD0D /* Model */ = {
+		AE537B2E24AE057200339AE0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				AEA2D54A19923ADB00C39511 /* Move.swift */,
@@ -141,29 +141,13 @@
 				AE168031198FCA35007DDD0D /* Player.swift */,
 				AE168033198FCA58007DDD0D /* Game.swift */,
 				AEA2D5431990B8FA00C39511 /* AI.swift */,
-				AEA2D5491991014900C39511 /* Checkers */,
-				AE16802C198FB5E3007DDD0D /* Reversi */,
-				AEA5EBDD240900A500878DEF /* supportKotlinInSwift.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		AE16802C198FB5E3007DDD0D /* Reversi */ = {
-			isa = PBXGroup;
-			children = (
-				AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */,
-				AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */,
-			);
-			name = Reversi;
-			sourceTree = "<group>";
-		};
-		AEA2D5491991014900C39511 /* Checkers */ = {
-			isa = PBXGroup;
-			children = (
 				AEA2D5451991012A00C39511 /* CheckersPiece.swift */,
 				AEA2D5471991014300C39511 /* CheckersGameLogic.swift */,
+				AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */,
+				AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */,
+				AEA5EBDD240900A500878DEF /* supportKotlinInSwift.swift */,
 			);
-			name = Checkers;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
