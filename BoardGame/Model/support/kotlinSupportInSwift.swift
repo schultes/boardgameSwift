@@ -1,8 +1,8 @@
 //
-//  supportKotlinInSwift.swift
+//  kotlinSupportInSwift.swift
 //  BoardGame
 //
-//  Created by Dominik Schultes on 28.02.20.
+//  Created by Dominik Schultes on 03.07.20.
 //  Copyright © 2020 THM. All rights reserved.
 //
 
