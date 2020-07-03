@@ -1,6 +1,6 @@
 #if false
 let Ꮻpackage = "de.thm.mow.boardgame.model.reversi"
-let Ꮻimports = ["de.thm.mow.boardgame.model.Player", "de.thm.mow.boardgame.model.support"]
+let Ꮻimports = ["de.thm.mow.boardgame.model.Player", "de.thm.mow.boardgame.model.support.*"]
 #endif
 
 enum ReversiPiece: String, CustomStringConvertible {

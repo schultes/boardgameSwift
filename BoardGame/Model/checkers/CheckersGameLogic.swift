@@ -1,6 +1,6 @@
 #if false
 let Ꮻpackage = "de.thm.mow.boardgame.model.checkers"
-let Ꮻimports = ["de.thm.mow.boardgame.model", "de.thm.mow.boardgame.model.support"]
+let Ꮻimports = ["de.thm.mow.boardgame.model.*", "de.thm.mow.boardgame.model.support.*"]
 #endif
 
 class CheckersGameLogic: GameLogic {
