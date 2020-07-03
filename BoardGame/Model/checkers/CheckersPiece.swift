@@ -1,3 +1,8 @@
+#if false
+let Ꮻpackage = "de.thm.mow.boardgame.model.checkers"
+let Ꮻimports = ["de.thm.mow.boardgame.model.Player", "de.thm.mow.boardgame.model.support"]
+#endif
+
 enum CheckersPiece: String, CustomStringConvertible {
     case Empty = "  "
     case Invalid = "x"

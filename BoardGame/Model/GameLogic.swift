@@ -1,3 +1,8 @@
+#if false
+let Ꮻpackage = "de.thm.mow.boardgame.model"
+let Ꮻimports = ["de.thm.mow.boardgame.model.support"]
+#endif
+
 typealias GameResult = (finished: Bool, winner: Player?)
 protocol GameLogic {
     associatedtype P

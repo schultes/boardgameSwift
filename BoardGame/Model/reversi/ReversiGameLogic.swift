@@ -1,3 +1,8 @@
+#if false
+let Ꮻpackage = "de.thm.mow.boardgame.model.reversi"
+let Ꮻimports = ["de.thm.mow.boardgame.model", "de.thm.mow.boardgame.model.support"]
+#endif
+
 class ReversiGameLogic: GameLogic {
     typealias P = ReversiPiece
     func getInitialBoard() -> Board<P> {
