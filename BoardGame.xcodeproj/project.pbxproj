@@ -18,6 +18,7 @@
 		AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */; };
 		AE168032198FCA35007DDD0D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168031198FCA35007DDD0D /* Player.swift */; };
 		AE168034198FCA58007DDD0D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168033198FCA58007DDD0D /* Game.swift */; };
+		AE37CA8924AF71F60010EBF1 /* ChessPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */; };
 		AEA2D5441990B8FA00C39511 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5431990B8FA00C39511 /* AI.swift */; };
 		AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5451991012A00C39511 /* CheckersPiece.swift */; };
 		AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5471991014300C39511 /* CheckersGameLogic.swift */; };
@@ -51,6 +52,7 @@
 		AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReversiGameLogic.swift; sourceTree = "<group>"; };
 		AE168031198FCA35007DDD0D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AE168033198FCA58007DDD0D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPiece.swift; sourceTree = "<group>"; };
 		AEA2D5431990B8FA00C39511 /* AI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		AEA2D5451991012A00C39511 /* CheckersPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersPiece.swift; sourceTree = "<group>"; };
 		AEA2D5471991014300C39511 /* CheckersGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersGameLogic.swift; sourceTree = "<group>"; };
@@ -132,9 +134,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AE37CA8724AF71CD0010EBF1 /* chess */ = {
+			isa = PBXGroup;
+			children = (
+				AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */,
+			);
+			path = chess;
+			sourceTree = "<group>";
+		};
 		AE537B2E24AE057200339AE0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE37CA8724AF71CD0010EBF1 /* chess */,
 				AEBF532524AEFCCE007181CD /* reversi */,
 				AEBF532424AEFC8F007181CD /* checkers */,
 				AEA2D54A19923ADB00C39511 /* Move.swift */,
@@ -285,6 +296,7 @@
 				AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */,
 				AEA2D5441990B8FA00C39511 /* AI.swift in Sources */,
 				AE16800A198FB08C007DDD0D /* ViewController.swift in Sources */,
+				AE37CA8924AF71F60010EBF1 /* ChessPiece.swift in Sources */,
 				AE168032198FCA35007DDD0D /* Player.swift in Sources */,
 				AEBF532824AF1775007181CD /* kotlinSupportInSwift.swift in Sources */,
 				AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */,
