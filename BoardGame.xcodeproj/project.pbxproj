@@ -135,19 +135,43 @@
 		AE537B2E24AE057200339AE0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEBF532524AEFCCE007181CD /* reversi */,
+				AEBF532424AEFC8F007181CD /* checkers */,
 				AEA2D54A19923ADB00C39511 /* Move.swift */,
 				AE168024198FB111007DDD0D /* Board.swift */,
 				AE16802D198FC709007DDD0D /* GameLogic.swift */,
 				AE168031198FCA35007DDD0D /* Player.swift */,
 				AE168033198FCA58007DDD0D /* Game.swift */,
 				AEA2D5431990B8FA00C39511 /* AI.swift */,
-				AEA2D5451991012A00C39511 /* CheckersPiece.swift */,
-				AEA2D5471991014300C39511 /* CheckersGameLogic.swift */,
-				AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */,
-				AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */,
-				AEA5EBDD240900A500878DEF /* supportKotlinInSwift.swift */,
+				AEBF532624AEFCDD007181CD /* support */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AEBF532424AEFC8F007181CD /* checkers */ = {
+			isa = PBXGroup;
+			children = (
+				AEA2D5471991014300C39511 /* CheckersGameLogic.swift */,
+				AEA2D5451991012A00C39511 /* CheckersPiece.swift */,
+			);
+			path = checkers;
+			sourceTree = "<group>";
+		};
+		AEBF532524AEFCCE007181CD /* reversi */ = {
+			isa = PBXGroup;
+			children = (
+				AE16802F198FC855007DDD0D /* ReversiGameLogic.swift */,
+				AE16802A198FB5DC007DDD0D /* ReversiPiece.swift */,
+			);
+			path = reversi;
+			sourceTree = "<group>";
+		};
+		AEBF532624AEFCDD007181CD /* support */ = {
+			isa = PBXGroup;
+			children = (
+				AEA5EBDD240900A500878DEF /* supportKotlinInSwift.swift */,
+			);
+			path = support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
