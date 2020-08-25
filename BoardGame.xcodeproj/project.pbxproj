@@ -23,6 +23,8 @@
 		AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5451991012A00C39511 /* CheckersPiece.swift */; };
 		AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5471991014300C39511 /* CheckersGameLogic.swift */; };
 		AEA2D54B19923ADB00C39511 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D54A19923ADB00C39511 /* Move.swift */; };
+		AEBA884824B4D03600BD1383 /* ChessGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA884624B4D03600BD1383 /* ChessGameLogic.swift */; };
+		AEBA884924B4D03600BD1383 /* ChessBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA884724B4D03600BD1383 /* ChessBoard.swift */; };
 		AEBF532824AF1775007181CD /* kotlinSupportInSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF532724AF1775007181CD /* kotlinSupportInSwift.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		AEA2D5451991012A00C39511 /* CheckersPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersPiece.swift; sourceTree = "<group>"; };
 		AEA2D5471991014300C39511 /* CheckersGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersGameLogic.swift; sourceTree = "<group>"; };
 		AEA2D54A19923ADB00C39511 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		AEBA884624B4D03600BD1383 /* ChessGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessGameLogic.swift; sourceTree = "<group>"; };
+		AEBA884724B4D03600BD1383 /* ChessBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessBoard.swift; sourceTree = "<group>"; };
 		AEBF532724AF1775007181CD /* kotlinSupportInSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kotlinSupportInSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +141,8 @@
 		AE37CA8724AF71CD0010EBF1 /* chess */ = {
 			isa = PBXGroup;
 			children = (
+				AEBA884724B4D03600BD1383 /* ChessBoard.swift */,
+				AEBA884624B4D03600BD1383 /* ChessGameLogic.swift */,
 				AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */,
 			);
 			path = chess;
@@ -291,12 +297,14 @@
 			files = (
 				AE16802E198FC709007DDD0D /* GameLogic.swift in Sources */,
 				AE168034198FCA58007DDD0D /* Game.swift in Sources */,
+				AEBA884824B4D03600BD1383 /* ChessGameLogic.swift in Sources */,
 				AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */,
 				AEA2D54B19923ADB00C39511 /* Move.swift in Sources */,
 				AE168030198FC855007DDD0D /* ReversiGameLogic.swift in Sources */,
 				AEA2D5441990B8FA00C39511 /* AI.swift in Sources */,
 				AE16800A198FB08C007DDD0D /* ViewController.swift in Sources */,
 				AE37CA8924AF71F60010EBF1 /* ChessPiece.swift in Sources */,
+				AEBA884924B4D03600BD1383 /* ChessBoard.swift in Sources */,
 				AE168032198FCA35007DDD0D /* Player.swift in Sources */,
 				AEBF532824AF1775007181CD /* kotlinSupportInSwift.swift in Sources */,
 				AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */,

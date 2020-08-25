@@ -70,7 +70,7 @@ class ReversiGameLogic: GameLogic {
         return result
     }
 
-    func evaluateBoard(_ board: Board<P>) -> Double {
+    func evaluateBoard(_ board: Board<P>, forPlayer player: Player) -> Double {
         var result = 0.0
         for x in 0..<board.columns {
             for y in 0..<board.rows {
@@ -87,7 +87,7 @@ class ReversiGameLogic: GameLogic {
         return result
     }
 
-    func getResult(onBoard board: Board<P>, forPlayer _: Player) -> GameResult {
+    func getResult(onBoard board: Board<P>, forPlayer player: Player) -> GameResult {
         var finished = true
         var winner: Player? = nil
         let movesOfBothPlayers = [getMoves(onBoard: board, forPlayer: Player.white), getMoves(onBoard: board, forPlayer: Player.black)]
@@ -98,11 +98,11 @@ class ReversiGameLogic: GameLogic {
         }
 
         if (finished) {
-            if (evaluateBoard(board) > 0) {
+            if (evaluateBoard(board, forPlayer: player) > 0) {
                 winner = Player.white
             }
 
-            if (evaluateBoard(board) < 0) {
+            if (evaluateBoard(board, forPlayer: player) < 0) {
                 winner = Player.black
             }
         }

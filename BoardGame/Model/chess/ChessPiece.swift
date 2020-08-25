@@ -18,27 +18,27 @@ enum ChessPiece: String, CustomStringConvertible {
     case BlackQueen = "♛"
     case WhiteKing = "♔"
     case BlackKing = "♚"
-    static func getPawn(forPlayer player: Player) -> ChessPiece {
+    static func pawn(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhitePawn : .BlackPawn
     }
-    
-    static func getKnight(forPlayer player: Player) -> ChessPiece {
+
+    static func knight(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhiteKnight : .BlackKnight
     }
-    
-    static func getBishop(forPlayer player: Player) -> ChessPiece {
+
+    static func bishop(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhiteBishop : .BlackBishop
     }
-    
-    static func getRook(forPlayer player: Player) -> ChessPiece {
+
+    static func rook(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhiteRook : .BlackRook
     }
-    
-    static func getQueen(forPlayer player: Player) -> ChessPiece {
+
+    static func queen(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhiteQueen : .BlackQueen
     }
 
-    static func getKing(forPlayer player: Player) -> ChessPiece {
+    static func king(ofPlayer player: Player) -> ChessPiece {
         return player == Player.white ? .WhiteKing : .BlackKing
     }
 
@@ -47,14 +47,48 @@ enum ChessPiece: String, CustomStringConvertible {
     }
 
     func belongs(toPlayer player: Player) -> Bool {
-        if ((self == .WhitePawn) || (self == .WhiteKing)) && (player == Player.white) {
+        if ((self == .WhitePawn) || (self == .WhiteKnight) || (self == .WhiteBishop) || (self == .WhiteRook) || (self == .WhiteQueen) || (self == .WhiteKing)) && (player == Player.white) {
             return true
         }
 
-        if ((self == .BlackPawn) || (self == .BlackKing)) && (player == Player.black) {
+        if ((self == .BlackPawn) || (self == .BlackKnight) || (self == .BlackBishop) || (self == .BlackRook) || (self == .BlackQueen) || (self == .BlackKing)) && (player == Player.black) {
             return true
         }
 
         return false
+    }
+
+    var player: Player? {
+        if belongs(toPlayer: Player.white) {
+            return Player.white
+        }
+
+        if belongs(toPlayer: Player.black) {
+            return Player.black
+        }
+
+        return nil
+    }
+
+    var value: Double {
+        if let p = player {
+            let sign = p.sign
+            switch self {
+                case ChessPiece.pawn(ofPlayer: p):
+                    return sign * 1.0
+                case ChessPiece.knight(ofPlayer: p):
+                    return sign * 3.0
+                case ChessPiece.bishop(ofPlayer: p):
+                    return sign * 3.0
+                case ChessPiece.rook(ofPlayer: p):
+                    return sign * 5.0
+                case ChessPiece.queen(ofPlayer: p):
+                    return sign * 9.0
+                default:
+                    return 0.0
+            }
+        }
+
+        return 0.0
     }
 }

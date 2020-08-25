@@ -20,7 +20,7 @@ class AI<GL: GameLogic> {
         let allMoves = logic.getMoves(onBoard: board, forPlayer: player)
         for i in 0..<allMoves.count {
             var move = allMoves[i]
-            let newBoard = Board<P>(board: board)
+            let newBoard = board.clone()
             for step in move.steps {
                 newBoard.applyChanges(step.effects)
             }
@@ -29,7 +29,7 @@ class AI<GL: GameLogic> {
                 let nextMove = getNextMove(onBoard: newBoard, forPlayer: player.opponent, maximizingValue: !maximizingValue, withDepth: depth - 1)
                 move.value = nextMove.value!
             } else {
-                move.value = logic.evaluateBoard(newBoard)
+                move.value = logic.evaluateBoard(newBoard, forPlayer: player.opponent)
             }
 
             if depth == maxSearchDepth {
@@ -43,7 +43,7 @@ class AI<GL: GameLogic> {
 
         if (bestMove == nil) {
             // return empty dummy move if there is no real move
-            bestMove = Move<P>(source: (x: 0, y: 0), steps: [(target: (x: 0, y: 0), effects: [Effect<P>]())], value: logic.evaluateBoard(board))
+            bestMove = Move<P>(source: (x: 0, y: 0), steps: [(target: (x: 0, y: 0), effects: [Effect<P>]())], value: logic.evaluateBoard(board, forPlayer: player))
         }
 
         assert(bestMove!.value != nil)

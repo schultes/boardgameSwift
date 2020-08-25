@@ -8,6 +8,8 @@ protocol Game {
 
     var result: GameResult { get }
 
+    var evaluation: Double { get }
+
     func getFieldAsString(atCoords coords: Coords) -> String
     func getCurrentTargets() -> [Coords]
     func restart()
@@ -36,6 +38,10 @@ class GenericGame<GL: GameLogic>: Game {
 
     var result: GameResult {
         return logic.getResult(onBoard: currentBoard, forPlayer: currentPlayer)
+    }
+
+    var evaluation: Double {
+        logic.evaluateBoard(currentBoard, forPlayer: currentPlayer)
     }
 
     func getFieldAsString(atCoords coords: Coords) -> String {
@@ -76,7 +82,7 @@ class GenericGame<GL: GameLogic>: Game {
                         currentMoves = nil
                         currentStepIndex = 0
                         currentPlayer = currentPlayer.opponent
-                        print(logic.evaluateBoard(currentBoard))
+                        print(logic.evaluateBoard(currentBoard, forPlayer: currentPlayer))
                     } else {
                         var remainingMoves = [Move<P>]()
                         for m in currentMoves! {
@@ -122,8 +128,8 @@ class GenericGame<GL: GameLogic>: Game {
             currentBoard.applyChanges(step.effects)
         }
 
-        print(logic.evaluateBoard(currentBoard))
         currentPlayer = currentPlayer.opponent
+        print(logic.evaluateBoard(currentBoard, forPlayer: currentPlayer))
         return true
     }
 

@@ -4,18 +4,21 @@ let Ꮻimports = ["de.thm.mow.boardgame.model.support.*"]
 #endif
 
 class Board<P> {
-    let columns = 8
-    let rows = 8
-    var pieces: [P]
     let invalid: P
-    init(empty: P, invalid: P) {
-        pieces = [P](repeating: empty, count: columns * rows)
+    var pieces: [P]
+    init(invalid: P, pieces: [P]) {
         self.invalid = invalid
+        self.pieces = pieces
     }
 
-    init(board: Board<P>) {
-        pieces = board.pieces.copy()
-        invalid = board.invalid
+    let columns = 8
+    let rows = 8
+    convenience init(empty: P, invalid: P) {
+        self.init(invalid: invalid, pieces: [P](repeating: empty, count: 64))
+    }
+
+    func clone() -> Board<P> {
+        return Board<P>(invalid: invalid, pieces: pieces.copy())
     }
 
     private func indexIsValidFor(row: Int, column: Int) -> Bool {
@@ -24,6 +27,16 @@ class Board<P> {
 
     private func indexFor(row: Int, column: Int) -> Int {
         return (row * columns) + column
+    }
+
+    subscript(coords: Coords) -> P {
+        get {
+            return self[coords.x, coords.y]
+        }
+
+        set {
+            self[coords.x, coords.y] = newValue
+        }
     }
 
     subscript(column: Int, row: Int) -> P {
@@ -43,7 +56,7 @@ class Board<P> {
 
     func applyChanges(_ changes: [Effect<P>]) {
         for change in changes {
-            self[change.coords.x, change.coords.y] = change.newPiece
+            self[change.coords] = change.newPiece
         }
     }
 }

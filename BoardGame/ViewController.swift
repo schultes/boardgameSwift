@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var gameSelectionControl: UISegmentedControl!
     var fields = [[UIButton?]]()
     var uiDisabled = false
-    var game : Game = GenericGame<ReversiGameLogic>(logic: ReversiGameLogic())
+    var game : Game = GenericGame<ChessGameLogic>(logic: ChessGameLogic())
     
     
     @IBAction func aiSearchDepthChanged(_ sender: UISlider) {

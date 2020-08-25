@@ -9,6 +9,6 @@ protocol GameLogic {
     func getInitialBoard() -> Board<P>
     func getMoves(onBoard board: Board<P>, forPlayer: Player, forSourceCoords: Coords) -> [Move<P>]
     func getMoves(onBoard board: Board<P>, forPlayer player: Player) -> [Move<P>]
-    func evaluateBoard(_ board: Board<P>) -> Double
+    func evaluateBoard(_ board: Board<P>, forPlayer player: Player) -> Double
     func getResult(onBoard board: Board<P>, forPlayer: Player) -> GameResult
 }
