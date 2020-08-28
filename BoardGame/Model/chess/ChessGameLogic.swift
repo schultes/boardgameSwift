@@ -5,14 +5,6 @@ let Ꮻimports = ["de.thm.mow.boardgame.model.*", "de.thm.mow.boardgame.model.su
 
 class ChessGameLogic: GameLogic {
     typealias P = ChessPiece
-    private func firstRank(forPlayer player: Player) -> Int {
-        return player == Player.white ? 7 : 0
-    }
-
-    private func secondRank(forPlayer player: Player) -> Int {
-        return player == Player.white ? 6 : 1
-    }
-
     private func kingCoords(board: Board<P>, player: Player) -> Coords {
         return player == Player.white ? (board as! ChessBoard).whiteKing : (board as! ChessBoard).blackKing
     }
@@ -77,18 +69,18 @@ class ChessGameLogic: GameLogic {
     func getInitialBoard() -> Board<P> {
         let board = ChessBoard()
         for p in [Player.white, Player.black] {
-            var rank = firstRank(forPlayer: p)
-            board[0, rank] = P.rook(ofPlayer: p)
-            board[1, rank] = P.knight(ofPlayer: p)
-            board[2, rank] = P.bishop(ofPlayer: p)
-            board[3, rank] = P.queen(ofPlayer: p)
-            board[4, rank] = P.king(ofPlayer: p)
-            board[5, rank] = P.bishop(ofPlayer: p)
-            board[6, rank] = P.knight(ofPlayer: p)
-            board[7, rank] = P.rook(ofPlayer: p)
-            rank = secondRank(forPlayer: p)
+            var y = ChessBoard.yIndex(ofRank: 1, forPlayer: p)
+            board[0, y] = P.rook(ofPlayer: p)
+            board[1, y] = P.knight(ofPlayer: p)
+            board[2, y] = P.bishop(ofPlayer: p)
+            board[3, y] = P.queen(ofPlayer: p)
+            board[4, y] = P.king(ofPlayer: p)
+            board[5, y] = P.bishop(ofPlayer: p)
+            board[6, y] = P.knight(ofPlayer: p)
+            board[7, y] = P.rook(ofPlayer: p)
+            y = ChessBoard.yIndex(ofRank: 2, forPlayer: p)
             for x in 0...7 {
-                board[x, rank] = P.pawn(ofPlayer: p)
+                board[x, y] = P.pawn(ofPlayer: p)
             }
         }
 
@@ -105,13 +97,22 @@ class ChessGameLogic: GameLogic {
         let srcPiece = board[sc.x, sc.y]
         if srcPiece == P.pawn(ofPlayer: player) {
             let yDir = player == Player.white ? -1 : +1
-            if sc.y == secondRank(forPlayer: player) && board[sc.x, sc.y + yDir] == P.Empty {
+            if sc.y == ChessBoard.yIndex(ofRank: 2, forPlayer: player) && board[sc.x, sc.y + yDir] == P.Empty {
                 addMove(moves: &moves, board: board, player: player, sc: sc, deltaX: 0, deltaY: 2 * yDir, moveAllowed: true, captureAllowed: false)
             }
 
             addMove(moves: &moves, board: board, player: player, sc: sc, deltaX: 0, deltaY: yDir, moveAllowed: true, captureAllowed: false)
             for x in [-1, +1] {
                 addMove(moves: &moves, board: board, player: player, sc: sc, deltaX: x, deltaY: yDir, moveAllowed: false, captureAllowed: true)
+            }
+
+            // en passant
+            if let opponentPawn = (board as! ChessBoard).twoStepsPawn {
+                if (sc.x - opponentPawn.x).absoluteValue == 1 && sc.y == opponentPawn.y {
+                    let tc: Coords = (opponentPawn.x, sc.y + yDir)
+                    let effects = [(coords: sc, newPiece: P.Empty), (coords: tc, newPiece: srcPiece), (coords: opponentPawn, newPiece: P.Empty)]
+                    addMove(moves: &moves, board: board, player: player, sc: sc, tc: tc, effects: effects)
+                }
             }
         }
 
@@ -187,17 +188,21 @@ class ChessGameLogic: GameLogic {
         let tc: Coords = (sc.x + deltaX, sc.y + deltaY)
         if moveAllowed && board[tc.x, tc.y] == P.Empty || captureAllowed && board[tc.x, tc.y].belongs(toPlayer: player.opponent) {
             var targetPiece = board[sc.x, sc.y]
-            if targetPiece == P.pawn(ofPlayer: player) && tc.y == firstRank(forPlayer: player.opponent) {
+            if targetPiece == P.pawn(ofPlayer: player) && tc.y == ChessBoard.yIndex(ofRank: 1, forPlayer: player.opponent) {
                 targetPiece = P.queen(ofPlayer: player) // promotion
             }
 
             let effects = [(coords: sc, newPiece: P.Empty), (coords: tc, newPiece: targetPiece)]
-            let newMove = Move<P>(source: sc, steps: [(target: tc, effects: effects)], value: nil)
-            let newBoard = board.clone()
-            newBoard.applyChanges(effects)
-            if !isInCheck(board: newBoard, player: player) {
-                moves += [newMove]
-            }
+            addMove(moves: &moves, board: board, player: player, sc: sc, tc: tc, effects: effects)
+        }
+    }
+
+    private func addMove(moves: inout [Move<P>], board: Board<P>, player: Player, sc: Coords, tc: Coords, effects: [Effect<P>]) {
+        let newMove = Move<P>(source: sc, steps: [(target: tc, effects: effects)], value: nil)
+        let newBoard = board.clone()
+        newBoard.applyChanges(effects)
+        if !isInCheck(board: newBoard, player: player) {
+            moves += [newMove]
         }
     }
 

@@ -7,10 +7,12 @@ class ChessBoard: Board<ChessPiece> {
     var evaluation: Double
     var whiteKing: Coords
     var blackKing: Coords
-    init(pieces: [ChessPiece], evaluation: Double = 0.0, whiteKing: Coords = (x: 4, y: 7), blackKing: Coords = (x: 4, y: 0)) {
+    var twoStepsPawn: Coords?
+    init(pieces: [ChessPiece], evaluation: Double = 0.0, whiteKing: Coords = (x: 4, y: 7), blackKing: Coords = (x: 4, y: 0), twoStepsPawn: Coords? = nil) {
         self.evaluation = evaluation
         self.whiteKing = whiteKing
         self.blackKing = blackKing
+        self.twoStepsPawn = twoStepsPawn
         super.init(invalid: ChessPiece.Invalid, pieces: pieces)
     }
 
@@ -19,27 +21,44 @@ class ChessBoard: Board<ChessPiece> {
     }
 
     override func clone() -> Board<ChessPiece> {
-        return ChessBoard(pieces: pieces.copy(), evaluation: evaluation, whiteKing: whiteKing, blackKing: blackKing)
+        return ChessBoard(pieces: pieces.copy(), evaluation: evaluation, whiteKing: whiteKing, blackKing: blackKing, twoStepsPawn: twoStepsPawn)
+    }
+
+    static func yIndex(ofRank rank: Int, forPlayer player: Player) -> Int {
+        return player == Player.white ? 8 - rank : -1 + rank
     }
 
     override func applyChanges(_ changes: [Effect<ChessPiece>]) {
-        let lastChange = changes.last!
-        let p = lastChange.newPiece.player!
-        let oldPiece = self[lastChange.coords]
-        if oldPiece.belongs(toPlayer: p.opponent) {
-            evaluation -= oldPiece.value
+        // changes.size == 2 -> normal move or capture (incl. promotion); == 3 -> en passant; == 4 -> castling
+        let source = changes.first!
+        var target = changes.last!
+        let capturedOpponent = changes.last!
+        if changes.count == 3 {
+            // en passant
+            target = changes[1]
         }
 
-        if lastChange.newPiece == ChessPiece.queen(ofPlayer: p) && self[changes.first!.coords] == ChessPiece.pawn(ofPlayer: p) {
-            evaluation += ChessPiece.queen(ofPlayer: p).value - ChessPiece.pawn(ofPlayer: p).value // promotion
+        let sourcePiece = self[source.coords]
+        let targetPiece = target.newPiece
+        let capturedPiece = self[capturedOpponent.coords]
+        let p = targetPiece.player!
+        if capturedPiece.belongs(toPlayer: p.opponent) {
+            evaluation -= capturedPiece.value(c: capturedOpponent.coords)
         }
 
-        if lastChange.newPiece == ChessPiece.king(ofPlayer: p) {
+        evaluation += targetPiece.value(c: target.coords) - sourcePiece.value(c: source.coords)
+        if targetPiece == ChessPiece.king(ofPlayer: p) {
             if p == Player.white {
-                whiteKing = lastChange.coords
+                whiteKing = target.coords
             } else {
-                blackKing = lastChange.coords
+                blackKing = target.coords
             }
+        }
+
+        if targetPiece == ChessPiece.pawn(ofPlayer: p) && target.coords.y == ChessBoard.yIndex(ofRank: 4, forPlayer: p) && source.coords.y == ChessBoard.yIndex(ofRank: 2, forPlayer: p) {
+            twoStepsPawn = target.coords
+        } else {
+            twoStepsPawn = nil
         }
 
         super.applyChanges(changes)

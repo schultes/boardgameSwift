@@ -11,3 +11,23 @@ public extension Array {
         return self
     }
 }
+
+public extension Double {
+    var absoluteValue: Double {
+        return abs(self)
+    }
+}
+
+public extension Int {
+    var absoluteValue: Int {
+        return abs(self)
+    }
+}
+
+func *(lhs: Int, rhs: Double) -> Double {
+    return Double(lhs) * rhs
+}
+
+func -(lhs: Double, rhs: Int) -> Double {
+    return lhs - Double(rhs)
+}

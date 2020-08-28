@@ -16,7 +16,7 @@ class AI<GL: GameLogic> {
     }
 
     private func getNextMove(onBoard board: Board<P>, forPlayer player: Player, maximizingValue: Bool, withDepth depth: Int) -> Move<P> {
-        var bestMove: Move<P>? = nil
+        var bestMoves = [Move<P>]()
         let allMoves = logic.getMoves(onBoard: board, forPlayer: player)
         for i in 0..<allMoves.count {
             var move = allMoves[i]
@@ -33,20 +33,24 @@ class AI<GL: GameLogic> {
             }
 
             if depth == maxSearchDepth {
-                print("depth: \(depth), (\(move.source)), best value: \(bestMove?.value ?? 0), current value: \(move.value!)")
+                print("depth: \(depth), (\(move.source)), best value: \(bestMoves.first?.value ?? 0), size = \(bestMoves.count), current value: \(move.value!)")
             }
 
-            if (bestMove == nil) || ((move.value! > bestMove!.value!) == maximizingValue) {
-                bestMove = move
+            if bestMoves.isEmpty || (bestMoves.first!.value! - move.value!).absoluteValue < 0.01 {
+                bestMoves.append(move)
+            } else {
+                if (move.value! > bestMoves.first!.value!) == maximizingValue {
+                    bestMoves.removeAll()
+                    bestMoves.append(move)
+                }
             }
         }
 
-        if (bestMove == nil) {
+        if bestMoves.isEmpty {
             // return empty dummy move if there is no real move
-            bestMove = Move<P>(source: (x: 0, y: 0), steps: [(target: (x: 0, y: 0), effects: [Effect<P>]())], value: logic.evaluateBoard(board, forPlayer: player))
+            bestMoves.append(Move<P>(source: (x: 0, y: 0), steps: [(target: (x: 0, y: 0), effects: [Effect<P>]())], value: logic.evaluateBoard(board, forPlayer: player)))
         }
 
-        assert(bestMove!.value != nil)
-        return bestMove!
+        return bestMoves.randomElement()!
     }
 }
