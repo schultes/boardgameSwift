@@ -63,7 +63,7 @@ class CheckersGameLogic: GameLogic {
                                 }
 
                                 let targetPiece = getTargetPiece(onBoard: board, forPlayer: player, atCoords: tc, forSourcePiece: sourcePiece)
-                                normalMoves.append(Move<P>(source: sc, steps: [(target: tc, effects: [(coords: sc, newPiece: P.Empty), (coords: tc, newPiece: targetPiece)])], value: nil))
+                                normalMoves.append(Move<P>(source: sc, steps: [(target: tc, effects: [(coords: sc, newPiece: P.Empty), (coords: tc, newPiece: targetPiece)])]))
                             }
                         }
                     }
@@ -71,7 +71,7 @@ class CheckersGameLogic: GameLogic {
                     // capture
                     let arrayOfSteps = recursiveCapture(onBoard: board, forPlayer: player, forCurrentCoords: sc, withRange: range, inYdirections: yDirections)
                     for steps in arrayOfSteps {
-                        captureMoves.append(Move<P>(source: sc, steps: steps, value: nil))
+                        captureMoves.append(Move<P>(source: sc, steps: steps))
                     }
                 }
             }
@@ -109,8 +109,7 @@ class CheckersGameLogic: GameLogic {
                                 // promotion took place (man -> king): stop recursion!
                                 result.append(thisSteps)
                             } else {
-                                let newBoard = board.clone()
-                                newBoard.applyChanges(effects)
+                                let newBoard = board.changedCopy(changes: effects)
                                 let arrayOfSubsequentSteps = recursiveCapture(onBoard: newBoard, forPlayer: player, forCurrentCoords: t2c, withRange: range, inYdirections: yDirections)
                                 if arrayOfSubsequentSteps.isEmpty {
                                     result.append(thisSteps)

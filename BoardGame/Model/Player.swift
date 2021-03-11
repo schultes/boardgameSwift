@@ -11,4 +11,8 @@ enum Player {
     var sign: Double {
         self == .white ? +1.0 : -1.0
     }
+
+    var isMaximizing: Bool {
+        self == .white
+    }
 }

@@ -178,7 +178,7 @@ class ChessGameLogic: GameLogic {
 
                 if allowed {
                     let effects = [(coords: sc, newPiece: P.Empty), (coords: rookTarget, newPiece: P.rook(ofPlayer: player)), (coords: rookSource, newPiece: P.Empty), (coords: kingTarget, newPiece: P.king(ofPlayer: player))]
-                    moves += [Move<P>(source: sc, steps: [(target: kingTarget, effects: effects)], value: nil)]
+                    moves += [Move<P>(source: sc, steps: [(target: kingTarget, effects: effects)])]
                 }
             }
         }
@@ -198,9 +198,8 @@ class ChessGameLogic: GameLogic {
     }
 
     private func addMove(moves: inout [Move<P>], board: Board<P>, player: Player, sc: Coords, tc: Coords, effects: [Effect<P>]) {
-        let newMove = Move<P>(source: sc, steps: [(target: tc, effects: effects)], value: nil)
-        let newBoard = board.clone()
-        newBoard.applyChanges(effects)
+        let newMove = Move<P>(source: sc, steps: [(target: tc, effects: effects)])
+        let newBoard = board.changedCopy(changes: effects)
         if !isInCheck(board: newBoard, player: player) {
             moves += [newMove]
         }

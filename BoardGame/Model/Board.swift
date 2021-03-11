@@ -21,6 +21,18 @@ class Board<P> {
         return Board<P>(invalid: invalid, pieces: pieces.copy())
     }
 
+    func changedCopy(changes: [Effect<P>]) -> Board<P> {
+        let copiedBoard = clone()
+        copiedBoard.applyChanges(changes)
+        return copiedBoard
+    }
+
+    func changedCopy(move: Move<P>) -> Board<P> {
+        let copiedBoard = clone()
+        copiedBoard.applyChanges(move: move)
+        return copiedBoard
+    }
+
     private func indexIsValidFor(row: Int, column: Int) -> Bool {
         return row >= 0 && row < rows && column >= 0 && column < columns
     }
@@ -51,6 +63,12 @@ class Board<P> {
         set {
             assert(indexIsValidFor(row: row, column: column), "Index out of range")
             pieces[indexFor(row: row, column: column)] = newValue
+        }
+    }
+
+    func applyChanges(move: Move<P>) {
+        move.steps.forEach {
+            applyChanges($0.effects)
         }
     }
 

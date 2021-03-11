@@ -16,16 +16,16 @@ class ChessBoard: Board<ChessPiece> {
         super.init(invalid: ChessPiece.Invalid, pieces: pieces)
     }
 
+    static func yIndex(ofRank rank: Int, forPlayer player: Player) -> Int {
+        return player == Player.white ? 8 - rank : -1 + rank
+    }
+
     convenience init() {
         self.init(pieces: [ChessPiece](repeating: ChessPiece.Empty, count: 64))
     }
 
     override func clone() -> Board<ChessPiece> {
         return ChessBoard(pieces: pieces.copy(), evaluation: evaluation, whiteKing: whiteKing, blackKing: blackKing, twoStepsPawn: twoStepsPawn)
-    }
-
-    static func yIndex(ofRank rank: Int, forPlayer player: Player) -> Int {
-        return player == Player.white ? 8 - rank : -1 + rank
     }
 
     override func applyChanges(_ changes: [Effect<ChessPiece>]) {

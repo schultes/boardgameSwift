@@ -1,16 +1,47 @@
-//
-//  kotlinSupportInSwift.swift
-//  BoardGame
-//
-//  Created by Dominik Schultes on 03.07.20.
-//  Copyright © 2020 THM. All rights reserved.
-//
-
 import Foundation
+
+typealias ᏫBool = Bool
+
+postfix operator ☯++
+postfix operator ☯--
+prefix operator ☯++
+prefix operator ☯--
+
+public extension Int {
+    @discardableResult static postfix func ☯++(x: inout Int) -> Int {
+        defer {x += 1}
+        return x
+    }
+
+    @discardableResult static postfix func ☯--(x: inout Int) -> Int {
+        defer {x -= 1}
+        return x
+    }
+
+    @discardableResult static prefix func ☯++(x: inout Int) -> Int {
+        x += 1
+        return x
+    }
+
+    @discardableResult static prefix func ☯--(x: inout Int) -> Int {
+        x -= 1
+        return x
+    }
+}
 
 public extension Array {
     func copy() -> Array {
         return self
+    }
+
+    func isNotEmpty() -> Bool {
+        return !self.isEmpty
+    }
+}
+
+public extension Sequence {
+    func zip<Sequence2>(_ other: Sequence2) -> Zip2Sequence<Self, Sequence2> {
+        return Swift.zip(self, other)
     }
 }
 
@@ -40,14 +71,14 @@ extension Array {
         let queue = DispatchQueue(label: "SequalsKconcurrency", attributes: .concurrent)
         let group = DispatchGroup()
         var result = [R?](repeating: nil, count: self.count)
-        
+
         for i in 0..<self.count {
             let index = i // it is crucial to make this copy of the index
             queue.async(group: group) {
                 result[index] = transform(self[index])
             }
         }
-        
+
         group.notify(queue: .main) {
             processResult(result.map {$0!})
         }

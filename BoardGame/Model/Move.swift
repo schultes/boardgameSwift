@@ -9,5 +9,4 @@ typealias Step<P> = (target: Coords, effects: [Effect<P>])
 struct Move<P> {
     let source: Coords
     let steps: [Step<P>]
-    var value: Double?
 }

@@ -55,13 +55,9 @@ class ViewController: UIViewController {
     
     private func aiMove() {
         disableUI(true)
-        DispatchQueue.global().async {
-            let somethingChanged = self.game.aiMove()
-            
-            DispatchQueue.main.async {
-                if somethingChanged {self.refreshUI()}
-                self.disableUI(false)
-            }
+        game.aiMove {
+            self.refreshUI()
+            self.disableUI(false)
         }
     }
     

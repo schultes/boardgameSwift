@@ -14,7 +14,7 @@ protocol Game {
     func getCurrentTargets() -> [Coords]
     func restart()
     func userAction(atCoords coords: Coords) -> Bool
-    func aiMove() -> Bool
+    func aiMove(finished: @escaping () -> ())
     func aiSetSearchDepth(_ depth: Int)
 }
 
@@ -28,7 +28,7 @@ class GenericGame<GL: GameLogic>: Game {
     private var currentStepIndex = 0
     init(logic: GL) {
         self.logic = logic
-        self.ai = AI(logic: logic)
+        ai = AI(logic: logic)
         currentBoard = logic.getInitialBoard()
     }
 
@@ -104,7 +104,7 @@ class GenericGame<GL: GameLogic>: Game {
                 let allMoves = logic.getMoves(onBoard: currentBoard, forPlayer: currentPlayer)
                 if allMoves.isEmpty {
                     // add empty dummy move if there is no real move
-                    let dummyMove = Move<P>(source: (x, y), steps: [(target: (x, y), effects: [Effect<P>]())], value: nil)
+                    let dummyMove = Move<P>(source: (x, y), steps: [(target: (x, y), effects: [Effect<P>]())])
                     moves.append(dummyMove)
                 }
             }
@@ -118,19 +118,16 @@ class GenericGame<GL: GameLogic>: Game {
         return false
     }
 
-    func aiMove() -> Bool {
+    func aiMove(finished: @escaping () -> ()) {
         if result.finished {
-            return false
+            finished()
+            return
         }
 
-        let nextMove = ai.getNextMove(onBoard: currentBoard, forPlayer: currentPlayer)
-        for step in nextMove.steps {
-            currentBoard.applyChanges(step.effects)
+        ai.performMove(onBoard: currentBoard, forPlayer: currentPlayer) {
+            self.currentPlayer = self.currentPlayer.opponent
+            finished()
         }
-
-        currentPlayer = currentPlayer.opponent
-        print(logic.evaluateBoard(currentBoard, forPlayer: currentPlayer))
-        return true
     }
 
     func aiSetSearchDepth(_ depth: Int) {

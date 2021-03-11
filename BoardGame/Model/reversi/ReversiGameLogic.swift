@@ -51,7 +51,7 @@ class ReversiGameLogic: GameLogic {
             if (!allChanges.isEmpty) {
                 let newElement = [(coords: sourceCoords, newPiece: playersPiece)]
                 allChanges += newElement
-                let move = Move<P>(source: sourceCoords, steps: [(target: sourceCoords, effects: allChanges)], value: nil)
+                let move = Move<P>(source: sourceCoords, steps: [(target: sourceCoords, effects: allChanges)])
                 result.append(move)
             }
         }
