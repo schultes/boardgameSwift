@@ -72,6 +72,7 @@ extension Array {
         let group = DispatchGroup()
         var result = [R?](repeating: nil, count: self.count)
 
+        let start = DispatchTime.now()
         for i in 0..<self.count {
             let index = i // it is crucial to make this copy of the index
             queue.async(group: group) {
@@ -80,6 +81,8 @@ extension Array {
         }
 
         group.notify(queue: .main) {
+            let end = DispatchTime.now()
+            print("\(Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000) ms")
             processResult(result.map {$0!})
         }
     }

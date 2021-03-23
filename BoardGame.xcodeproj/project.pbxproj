@@ -19,6 +19,7 @@
 		AE168032198FCA35007DDD0D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168031198FCA35007DDD0D /* Player.swift */; };
 		AE168034198FCA58007DDD0D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE168033198FCA58007DDD0D /* Game.swift */; };
 		AE37CA8924AF71F60010EBF1 /* ChessPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */; };
+		AE78E4FB2609D675002E29B9 /* experimental.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78E4FA2609D675002E29B9 /* experimental.swift */; };
 		AEA2D5441990B8FA00C39511 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5431990B8FA00C39511 /* AI.swift */; };
 		AEA2D5461991012A00C39511 /* CheckersPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5451991012A00C39511 /* CheckersPiece.swift */; };
 		AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2D5471991014300C39511 /* CheckersGameLogic.swift */; };
@@ -55,6 +56,7 @@
 		AE168031198FCA35007DDD0D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AE168033198FCA58007DDD0D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AE37CA8824AF71F60010EBF1 /* ChessPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPiece.swift; sourceTree = "<group>"; };
+		AE78E4FA2609D675002E29B9 /* experimental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = experimental.swift; sourceTree = "<group>"; };
 		AEA2D5431990B8FA00C39511 /* AI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		AEA2D5451991012A00C39511 /* CheckersPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersPiece.swift; sourceTree = "<group>"; };
 		AEA2D5471991014300C39511 /* CheckersGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckersGameLogic.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBF532724AF1775007181CD /* kotlinSupportInSwift.swift */,
+				AE78E4FA2609D675002E29B9 /* experimental.swift */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -242,11 +245,12 @@
 				TargetAttributes = {
 					AE168001198FB08C007DDD0D = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 6Y53PWAWY2;
+						DevelopmentTeam = 45L62PX3T7;
 						LastSwiftMigration = 1020;
 					};
 					AE168013198FB08C007DDD0D = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 45L62PX3T7;
 						LastSwiftMigration = 0900;
 						TestTargetID = AE168001198FB08C007DDD0D;
 					};
@@ -297,6 +301,7 @@
 			files = (
 				AE16802E198FC709007DDD0D /* GameLogic.swift in Sources */,
 				AE168034198FCA58007DDD0D /* Game.swift in Sources */,
+				AE78E4FB2609D675002E29B9 /* experimental.swift in Sources */,
 				AEBA884824B4D03600BD1383 /* ChessGameLogic.swift in Sources */,
 				AEA2D5481991014300C39511 /* CheckersGameLogic.swift in Sources */,
 				AEA2D54B19923ADB00C39511 /* Move.swift in Sources */,
@@ -457,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 45L62PX3T7;
 				INFOPLIST_FILE = BoardGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -471,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 45L62PX3T7;
 				INFOPLIST_FILE = BoardGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -485,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BoardGame.app/BoardGame";
+				DEVELOPMENT_TEAM = 45L62PX3T7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -504,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BoardGame.app/BoardGame";
+				DEVELOPMENT_TEAM = 45L62PX3T7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BoardGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
