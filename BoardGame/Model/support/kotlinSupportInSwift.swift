@@ -34,7 +34,7 @@ public extension Array {
         return self
     }
 
-    func isNotEmpty() -> Bool {
+    var isNotEmpty: Bool {
         return !self.isEmpty
     }
 }
