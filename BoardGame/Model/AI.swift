@@ -22,7 +22,7 @@ class AI<GL: GameLogic> {
             var bestMoves = [Move<P>]()
             allMoves.zip($0).forEach {
                 let currentValue = $0.1
-                let almostTheSame = bestMoves.isNotEmpty() && (bestValue - currentValue).absoluteValue < 0.02
+                let almostTheSame = bestMoves.isNotEmpty && (bestValue - currentValue).absoluteValue < 0.02
                 let improvement = bestMoves.isEmpty || (currentValue > bestValue) == player.isMaximizing
                 if improvement && !almostTheSame {
                     bestMoves.removeAll()
@@ -34,7 +34,7 @@ class AI<GL: GameLogic> {
                 }
             }
 
-            if bestMoves.isNotEmpty() {
+            if bestMoves.isNotEmpty {
                 board.applyChanges(move: bestMoves.randomElement()!)
             }
 
