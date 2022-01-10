@@ -39,6 +39,12 @@ public extension Array {
     }
 }
 
+public extension String {
+    var isNotEmpty: Bool {
+        return !self.isEmpty
+    }
+}
+
 public extension Sequence {
     func zip<Sequence2>(_ other: Sequence2) -> Zip2Sequence<Self, Sequence2> {
         return Swift.zip(self, other)
